@@ -1,0 +1,24 @@
+[03-Apr-2023 21:07:38 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'sourcedartnew'@'localhost' (using password: YES) in /home/sourcedartnew/public_html/apt-2022/assets/PHP/conexion.php:2
+Stack trace:
+#0 /home/sourcedartnew/public_html/apt-2022/assets/PHP/conexion.php(2): mysqli_connect('localhost', 'sourcedartnew', 'iGNT^Y6gwq6a', 'sourcedartnew_a...')
+#1 /home/sourcedartnew/public_html/apt-2022/assets/E-poster/index.php(106): require_once('/home/sourcedar...')
+#2 {main}
+  thrown in /home/sourcedartnew/public_html/apt-2022/assets/PHP/conexion.php on line 2
+[03-Apr-2023 21:13:54 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'sourcedartnew'@'localhost' (using password: YES) in /home/sourcedartnew/public_html/apt-2022/assets/PHP/conexion.php:2
+Stack trace:
+#0 /home/sourcedartnew/public_html/apt-2022/assets/PHP/conexion.php(2): mysqli_connect('localhost', 'sourcedartnew', 'iGNT^Y6gwq6a', 'sourcedartnew_a...')
+#1 /home/sourcedartnew/public_html/apt-2022/assets/E-poster/index.php(106): require_once('/home/sourcedar...')
+#2 {main}
+  thrown in /home/sourcedartnew/public_html/apt-2022/assets/PHP/conexion.php on line 2
+[11-Apr-2023 10:49:11 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'sourcedartnew'@'localhost' (using password: YES) in /home/sourcedartnew/public_html/apt-2022/assets/PHP/conexion.php:2
+Stack trace:
+#0 /home/sourcedartnew/public_html/apt-2022/assets/PHP/conexion.php(2): mysqli_connect('localhost', 'sourcedartnew', 'iGNT^Y6gwq6a', 'sourcedartnew_a...')
+#1 /home/sourcedartnew/public_html/apt-2022/assets/E-poster/index.php(106): require_once('/home/sourcedar...')
+#2 {main}
+  thrown in /home/sourcedartnew/public_html/apt-2022/assets/PHP/conexion.php on line 2
+[04-May-2023 08:57:50 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'sourcedartnew'@'localhost' (using password: YES) in /home/sourcedartnew/public_html/apt-2022/assets/PHP/conexion.php:2
+Stack trace:
+#0 /home/sourcedartnew/public_html/apt-2022/assets/PHP/conexion.php(2): mysqli_connect('localhost', 'sourcedartnew', 'iGNT^Y6gwq6a', 'sourcedartnew_a...')
+#1 /home/sourcedartnew/public_html/apt-2022/assets/E-poster/index.php(106): require_once('/home/sourcedar...')
+#2 {main}
+  thrown in /home/sourcedartnew/public_html/apt-2022/assets/PHP/conexion.php on line 2

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" class="no-ie">
+    <head>
+        <title>Photos</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="src/touchTouch.css">
+        <link rel="stylesheet" href="src/style.css">
+        <script src="src/js/jquery.min.js"></script>
+        <link rel="stylesheet" href="assets/css/main.css" />
+		<script src="assets/js/jquery.min.js"></script>
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    </head>
+    <body>
+        <h1>Galerie Photos</h1>
+        <header id="header">
+			<h1><img style="margin-right: 10px; border-radius: 50%;" src="./abdelfatah-logo.jpg" width="50px" alt=""><a href="../assets/index.html"><strong>6 abdelfatah</strong></a> </h1>
+			<nav>
+				<ul>
+					<li><a href="#footer"><i class="fas fa-bars"></i></a></li>
+				</ul>
+			</nav>
+		</header>
+        <div id="gallery1" class="photos">
+            <script>
+                for(i=1;i<=200;i++)
+                {
+                    $('#gallery1').append(`<a class="magnifier" href="./imgs/high/img (${i}).jpg"><img src="./imgs/low/img (${i}).jpg" /></a>`)
+                }
+            </script>
+            <!-- Footer -->
+			<footer id="footer" class="panel">
+					<nav class="navbar">
+						<ul class="ul">
+							<li><a href="../index.html">Extraits vidéo de la conférence</a></li>	
+						</ul>
+					</nav>
+			</footer>
+        </div>
+
+        <script src="src/touchTouch.js"></script>
+        <script>
+            // multiple instances
+            touchTouch(document.getElementById('gallery1').querySelectorAll('.magnifier'));
+
+            var logo=$('.logo')
+            
+            // jsContent  
+        </script>
+
+        <script src="src/js/jquery.poptrox.min.js"></script>
+        <script src="src/js/browser.min.js"></script>
+        <script src="src/js/breakpoints.min.js"></script>
+        <script src="src/js/util.js"></script>
+        <script src="src/js/main.js"></script>
+    </body>
+</html>

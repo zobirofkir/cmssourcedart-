@@ -1,0 +1,2 @@
+[22-Jun-2023 23:04:28 UTC] PHP Warning:  file_get_contents(/tmp/index.php): Failed to open stream: No such file or directory in /home/sourcedartnew/public_html/l.php on line 2
+[22-Jun-2023 23:04:28 UTC] PHP Warning:  file_get_contents(/tmp/.htaccess): Failed to open stream: No such file or directory in /home/sourcedartnew/public_html/l.php on line 5

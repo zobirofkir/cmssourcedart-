@@ -1,0 +1,475 @@
+.messageenvoyer button
+
+
+#btnn,#btnnn{
+    color: white;
+
+}
+
+
+.righttop{
+    border: 0;
+    background-color: #cdcdcd;
+}
+
+
+
+.l{
+    background-color:#94aec9;
+    
+}
+
+
+.rightbottom{
+    border: 3px solid #141139;
+    background-color: white;
+    border-radius: 25px;
+    justify-content: center;
+}
+
+.contentQuizze{
+    background-color: #c8c8c6;
+    border: 1px solid #ec7441;
+}
+
+
+.contentquestion{
+
+    background-color: white;
+    border: 2px solid #117ee4;
+}
+
+
+
+.txtqs1{
+    color: white;
+    background-color: #282155;
+}
+
+
+.messageenvoyer{
+    background-color: white;
+    border-top: 1px solid #354d65;
+
+    }
+
+    .messageenvoyer button{
+        background: #010602;
+    color: #fff;
+    }
+
+    .A{
+        background-color: white;
+    }
+
+ 
+
+    .responseShow{
+        background-color: #afaeae;
+
+    }
+
+    .contenttele{
+        border: 4px double #127ee3;
+        }
+
+        .txttele{
+            color: white;
+            background-color: #0e507a;
+            border: 4.5px  solid #10a6ff ;
+        }
+     
+
+    /****************Fin CSS1**************************/
+
+    .boxrecher{
+       background-color: #282155;
+    }
+
+    .PDF div{
+        background: -webkit-radial-gradient(center,#c4dbe7,#77b3d5);
+        color: white;
+    }
+
+    .ll{
+        background: -webkit-radial-gradient(center,#c4dbe7,#141139);
+        color: #141139;
+        font-weight: bold;
+        transition: 0.5s;
+    }
+  /****************Fin iposter*************************/
+  .div2 .pdate{
+    color: green;
+  }
+  .div2 .pdate{
+    color: green;
+}
+
+.h6{
+    color: black;
+}
+
+.psession{
+    color: #73237c;
+}
+
+  /****************Fin programme*************************/
+
+
+  #contentvedio{
+    position: relative;
+    transition: .5s;
+    min-height:500px;
+    max-height:-moz-fit-content;
+    max-height:fit-content;
+    overflow: hidden;
+    background-color: black;
+    border-top: 5px solid #888;
+    padding: 2% 0% 4% 0%;
+    border-radius: 10px;
+    border-bottom-left-radius: 50% 2%;
+    border-bottom-right-radius: 50% 2%;
+}
+#contentvedio:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translate(-50%);
+    height: .5%;
+    width: 28%;
+    background: #ddd;
+    border-radius: 50%;
+    box-shadow: 0 0 3px 0 white;
+}
+
+
+
+
+
+
+  nav{
+    background-color: black;
+    position: relative;
+   
+}
+.txtquizze,.txtquizze1{
+    color: white;
+    background-color: #762e0f;
+    border-top: 1px solid #ec7441;
+    border-left: 1px solid #ec7441;
+    border-right: 1px solid #ec7441;
+
+
+   }
+
+
+
+        /****************Fin StyleOrateur**************************/
+        .fvr{
+            background:-webkit-radial-gradient(center,#e9d8cf,#c38564);
+            color: black;
+        }
+      /****************Fin Stylemoderateur**************************/
+      .ctn{
+        color: #0a2946;
+       }
+
+
+    /* ul li{
+        background-color: #228fd6; 
+
+    } */
+
+    ul li:nth-child(1){
+        background-color: #ac7f7a;
+        box-shadow: -1px 10px 0.5px #b2b3b6;
+    
+    }
+    
+    ul li:nth-child(2){
+        background-color: #b2b3b6;
+        box-shadow: -1px 10px 0.5px #ac7f7a
+    
+    
+    }
+    
+    ul li:nth-child(3){
+        background-color: #ac7f7a;
+        box-shadow: -1px 10px 0.5px #b2b3b6;
+    
+    
+    }
+    ul li:nth-child(4){
+        background-color: #b2b3b6;
+        box-shadow: -1px 10px 0.5px #ac7f7a;
+    }
+    ul li:nth-child(5){
+        background-color: #ac7f7a;
+        box-shadow: -1px 10px 0.5px #b2b3b6;
+    
+    }
+
+    @media (max-width: 1200px){
+        nav a{
+            text-align: center;
+        }
+    }
+
+          /****************Fin Css**************************/
+
+
+
+/*************************************** Css  Chat Box laboratoir color ********************************************/
+
+/********************Audio Signale**********************/
+.audiosingnal{
+    width: 50px;
+    height:50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    align-self: center;
+    padding-right: 10px;
+
+}
+.audiosingnal1{
+    border: 0px solid transparent;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    align-self: center;
+}
+
+
+.audiosingnal1::before , .audiosingnal1::after{
+
+content: '';
+border: 1em solid rgb(255, 0, 0);
+border-radius: 50%;
+width: inherit;
+height:  inherit;
+position: absolute;
+top: 0;
+left: 0;
+animation: leader 2s linear infinite;
+opacity: 0;
+
+}
+
+
+.audiosingnal1::before{
+animation-delay: .5s;
+
+}
+
+@keyframes leader{
+
+0%{
+    transform: scale(0);
+    opacity: 0;
+}
+
+50%{
+    opacity: 1;
+}
+
+100%{
+    transform: scale(1);
+    opacity: 0;
+}
+}
+
+
+
+
+
+
+ 
+ /* animation  */
+ .leader2{
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+
+   
+}
+.a33{
+    
+    border: 0px solid transparent;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    align-self: center;
+    position: absolute;
+    margin-left: 40px;
+
+
+   
+    
+    
+   
+}
+
+
+.a33::before , .a33::after{
+
+    content: '';
+    border: 1em solid red;
+    border-radius: 50%;
+    width: inherit;
+    height:  inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: leader 2s linear infinite;
+    opacity: 0;
+
+     
+}
+
+
+.a33::before{
+    animation-delay: .5s;
+
+}
+
+@keyframes leader{
+
+    0%{
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    50%{
+        opacity: 1;
+    }
+
+    100%{
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+
+@media (max-width: 992px){
+    .navbar-expand-lg {
+        padding: 0;
+        flex-direction: row;
+    
+    
+    }
+    
+    .nav{
+        padding-bottom: 10px;
+    }
+    
+    .leader2{
+        padding-left: 110px;
+    }
+    
+    .nav a {
+      margin-top: 3px;
+    }
+    
+    }
+
+    /***********************Partie Message***************************/
+.list{
+    margin-top: 10px;
+    padding: 5px;
+    background-color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+
+
+}
+
+
+
+.msgg{
+    height: fit-content;
+    padding: 8px;
+    border: 1px solid #cf998f;
+    text-align: left;
+    border-radius: 8px;
+    color: black;
+    font-size: 1em;
+    font-weight: bold;
+    min-height: 50px;
+    max-height: fit-content;
+    overflow-y: auto;
+    width: 80%;
+}
+
+a{cursor: pointer;}
+
+
+
+
+
+
+
+  .txms{
+      float: left;
+      width: 30%;
+      font-size: 1em;
+      font-weight: bold;
+  }
+  .contmsg{
+      display: flex;
+      flex-direction: row;
+      margin-top: 5px;
+     
+  }
+
+  .ctrmsg{
+    margin: auto;
+    width: 20%;
+    display: flex;
+    justify-content: space-around;
+   
+  }
+
+  .txtview{
+      font-weight: bold;
+      font-size: 1em;
+  }
+
+  #mesageAll{
+      padding-bottom: 20px;
+  }
+  
+
+    #cpt {
+    font-weight: bold;
+    font-size: 21px;
+    text-align: center;
+    color: red !important;
+
+}
+
+.timemsg{
+    background: white;
+    width: -moz-fit-content;
+    padding: 7px 6px;
+    border-radius: 25px;
+    position: absolute;
+    bottom: -11px;
+    right: -16px;
+    font-size: 13px;
+    font-weight: bold;
+    color: black;
+    border: 0px solid;
+}
