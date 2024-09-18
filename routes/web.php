@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\EposterController;
+use App\Http\Controllers\ExportController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProgrameController;
 use App\Http\Controllers\ThemeController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +31,22 @@ Route::middleware('auth')->group(function () {
     Route::post('/items', [ItemController::class, 'store'])->name('items.store');
     Route::put('/items/update/{itemName}', [ItemController::class, 'update'])->name('items.update');
     Route::delete('/items/delete/{itemName}', [ItemController::class, 'destroy'])->name('items.destroy');
+
+
+    Route::get('/programme', [ProgrameController::class, 'index'])->name('programme.index');
+    Route::get('/programme/edit/{pdfName}', [ProgrameController::class, 'edit'])->name('programme.edit');
+    Route::put('/programme/update/{pdfName}', [ProgrameController::class, 'update'])->name('programme.update');
+    Route::delete('/programme/delete/{pdfName}', [ProgrameController::class, 'destroy'])->name('programme.destroy');
+    Route::post('/programme', [ProgrameController::class, 'store'])->name('programme.store');
+
+    Route::get('/eposter', [EposterController::class, 'index'])->name('eposter.index');
+    Route::get('/eposter/create', [EposterController::class, 'create'])->name('eposter.create');
+    Route::post('/eposter', [EposterController::class, 'store'])->name('eposter.store');
+    Route::delete('/eposter/{imageName}', [EposterController::class, 'destroy'])->name('eposter.destroy');
+    Route::get('/eposter/{imageName}/edit', [EposterController::class, 'edit'])->name('eposter.edit');
+    Route::put('/eposter/{imageName}', [EposterController::class, 'update'])->name('eposter.update');
+    
+    Route::get('/eposter/export', [ExportController::class, 'export'])->name('project.export');
 });
 
 require __DIR__.'/auth.php';
