@@ -17,6 +17,13 @@
                             Open Project in GitHub Codespaces
                         </a>
                     </div>
+                    
+                    <!-- Open Local Project Button -->
+                    <div class="mt-6 text-center">
+                        <a href="{{ url('/project/index.html') }}" target="_blank" class="bg-green-500 text-white px-4 py-2 rounded">
+                            Open Local Project
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
