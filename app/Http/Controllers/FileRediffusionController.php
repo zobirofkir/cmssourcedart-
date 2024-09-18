@@ -30,9 +30,23 @@ class FileRediffusionController extends Controller
 
     public function update(Request $request, $file)
     {
+        // Validate that 'content' field is provided
+        $request->validate([
+            'content' => 'required',
+        ]);
+    
         $filePath = public_path("project/application/assets/$file");
-        file_put_contents($filePath, $request->input('content'));
-
-        return redirect()->back()->with('success', 'File updated successfully!');
+    
+        // Check if the file exists before attempting to write
+        if (file_exists($filePath)) {
+            try {
+                file_put_contents($filePath, $request->input('content'));
+                return response()->json(['success' => 'File updated successfully!']);
+            } catch (\Exception $e) {
+                return response()->json(['error' => 'Could not save the file. ' . $e->getMessage()], 500);
+            }
+        } else {
+            return response()->json(['error' => 'File not found.'], 404);
+        }
     }
 }
