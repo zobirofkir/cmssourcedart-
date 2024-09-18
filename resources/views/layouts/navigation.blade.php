@@ -16,9 +16,9 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-                    {{-- <x-nav-link :href="route('projects.index')" :active="request()->routeIs('projects.index')" class="hover:text-indigo-500 dark:hover:text-indigo-400">
+                    <x-nav-link :href="route('projects.index')" :active="request()->routeIs('projects.index')" class="hover:text-indigo-500 dark:hover:text-indigo-400">
                         {{ __('Upload') }}
-                    </x-nav-link> --}}
+                    </x-nav-link>
 
                     <x-nav-link :href="route('themes.index')" :active="request()->routeIs('themes.index')" class="hover:text-indigo-500 dark:hover:text-indigo-400">
                         {{ __('Reddifusion') }}
@@ -103,9 +103,9 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
 
-            {{-- <x-responsive-nav-link :href="route('projects.index')" :active="request()->routeIs('projects.index')" class="hover:bg-gray-100 dark:hover:bg-gray-800">
+            <x-responsive-nav-link :href="route('projects.index')" :active="request()->routeIs('projects.index')" class="hover:bg-gray-100 dark:hover:bg-gray-800">
                 {{ __('Upload') }}
-            </x-responsive-nav-link> --}}
+            </x-responsive-nav-link>
 
             <x-responsive-nav-link :href="route('themes.index')" :active="request()->routeIs('themes.index')" class="hover:bg-gray-100 dark:hover:bg-gray-800">
                 {{ __('Reddifusion') }}

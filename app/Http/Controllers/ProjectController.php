@@ -79,7 +79,7 @@ class ProjectController extends Controller
             'new_path' => 'required|string',
         ]);
     
-        $baseDir = '/var/www/html/public/project/';
+        $baseDir = 'project/';
         $oldPath = $baseDir . $name;
         $newPath = realpath($baseDir . $request->input('new_path'));
     
