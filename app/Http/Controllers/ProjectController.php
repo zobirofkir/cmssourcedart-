@@ -22,7 +22,7 @@ class ProjectController extends Controller
 
         $file = $request->file('file');
         $filename = $file->getClientOriginalName();
-        $uploadPath = '/var/www/html/public/project/'; // Your target path
+        $uploadPath = 'project/'; // Your target path
 
         // Move the uploaded file to the target directory with its original name
         $file->move($uploadPath, $filename);
