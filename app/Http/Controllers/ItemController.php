@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ItemRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -27,11 +28,9 @@ class ItemController extends Controller
         return view('items.index', compact('items', 'existingDays'));
     }
     
-    public function store(Request $request)
+    public function store(ItemRequest $request)
     {
-        $request->validate([
-            'image' => 'required|image',
-        ]);
+        $request->validated();
 
         $image = $request->file('image');
         $itemName = $image->getClientOriginalName();
@@ -56,7 +55,7 @@ class ItemController extends Controller
     }
 
     // Method to update an item
-    public function update(Request $request, $itemName)
+    public function update(ItemRequest $request, $itemName)
     {
         $itemPath = public_path("project/application/assets/items/$itemName");
 
