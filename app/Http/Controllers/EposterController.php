@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\EposterRequest;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
 class EposterController extends Controller
@@ -51,11 +50,9 @@ class EposterController extends Controller
         return view('eposter.edit', compact('imageName'));
     }
     
-    public function update(Request $request, $imageName)
+    public function update(EposterRequest $request, $imageName)
     {
-        $request->validate([
-            'image' => 'nullable|file|mimes:png,jpg,jpeg|max:2048',
-        ]);
+        $request->validated();
 
         $filePath = public_path("project/application/e-poster/images/$imageName");
 
