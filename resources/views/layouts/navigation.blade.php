@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('themes.index')" :active="request()->routeIs('themes.index')" class="hover:text-indigo-500 dark:hover:text-indigo-400">
                         {{ __('Reddifusion') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('files.index')" :active="request()->routeIs('files.index')" id="exportButton" class="hover:text-indigo-500 dark:hover:text-indigo-400">
+                        {{ __('Redifusion Files') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('items.index')" :active="request()->routeIs('items.index')" class="hover:text-indigo-500 dark:hover:text-indigo-400">
                         {{ __('Items') }}
                     </x-nav-link>
@@ -83,6 +86,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('themes.index')" :active="request()->routeIs('themes.index')" class="hover:bg-gray-100 dark:hover:bg-gray-800">
                 {{ __('Reddifusion') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('files.index')" :active="request()->routeIs('files.index')" class="hover:bg-gray-100 dark:hover:bg-gray-800">
+                {{ __('Reddifusion Files') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('items.index')" :active="request()->routeIs('items.index')" class="hover:bg-gray-100 dark:hover:bg-gray-800">
                 {{ __('Items') }}

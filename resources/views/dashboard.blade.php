@@ -10,6 +10,13 @@
                     <div class="mt-6">
                         <canvas id="myChart"></canvas>
                     </div>
+                    
+                    <!-- Open Project in GitHub Codespaces Button -->
+                    <div class="mt-6 text-center">
+                        <a href="https://github.com/zobirofkir/cmssourcedart" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded">
+                            Open Project in GitHub Codespaces
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

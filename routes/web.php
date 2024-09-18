@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EposterController;
 use App\Http\Controllers\ExportController;
+use App\Http\Controllers\FileRediffusionController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgrameController;
@@ -46,6 +47,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/eposter/{imageName}/edit', [EposterController::class, 'edit'])->name('eposter.edit');
     Route::put('/eposter/{imageName}', [EposterController::class, 'update'])->name('eposter.update');
     
+
+    Route::get('/files', [FileRediffusionController::class, 'index'])->name('files.index');
+    Route::get('/edit/{file}', [FileRediffusionController::class, 'edit'])->name('file.edit');
+    Route::post('/update/{file}', [FileRediffusionController::class, 'update'])->name('file.update');
+
     Route::get('/eposter/export', [ExportController::class, 'export'])->name('project.export');
 });
 
