@@ -39,7 +39,7 @@
             data: {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'], // X-axis labels
                 datasets: [{
-                    label: 'Monthly Sales',
+                    label: 'Monthly Visitors',
                     data: [12, 19, 3, 5, 2, 3, 7], // Data points
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     borderColor: 'rgba(75, 192, 192, 1)',
