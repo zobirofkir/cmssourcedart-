@@ -8,8 +8,8 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ItemFileController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgrameController;
-use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ThemeController;
+use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -65,11 +65,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/items/files/update/{file}', [ItemFileController::class, 'update'])->name('itemsfiles.update');
     
 
-    Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
-    Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create');
-    Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
-    Route::delete('/projects/{name}', [ProjectController::class, 'destroy'])->name('projects.destroy');
-    Route::put('/projects/{name}', [ProjectController::class, 'updatePath'])->name('projects.updatePath');
+    Route::get('/projects', [UploadController::class, 'index'])->name('projects.index');
+    Route::get('/projects/create', [UploadController::class, 'create'])->name('projects.create');
+    Route::post('/projects', [UploadController::class, 'store'])->name('projects.store');
+    Route::delete('/projects/{name}', [UploadController::class, 'destroy'])->name('projects.destroy');
+    Route::put('/projects/{name}', [UploadController::class, 'updatePath'])->name('projects.updatePath');
 
     Route::get('/eposter/export', [ExportController::class, 'export'])->name('project.export');
 });

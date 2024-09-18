@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use ZipArchive;
 use Illuminate\Support\Str;
 
-class ProjectController extends Controller
+class UploadController extends Controller
 {
     public function create()
     {
