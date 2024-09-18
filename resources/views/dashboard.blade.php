@@ -4,7 +4,7 @@
             <h1 class="text-3xl font-bold mb-5 dark:text-white text-black text-center">Welcome Back {{auth()->user()->name}}</h1>
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
+                    {{auth()->user()->name}}
                     
                     <!-- Chart Container -->
                     <div class="mt-6">
