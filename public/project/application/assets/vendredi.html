@@ -1,181 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Pédiatres</title>
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/css1.css">
-        <!-------------La chatgraphi------------------>
-        <link rel="stylesheet" href="css/GlobaleColor.css">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="../../index.html">Pédiatres</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pédiatres</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/css1.css">
+    <link rel="stylesheet" href="css/GlobaleColor.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../../index.html">Pédiatres</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <!-- Additional nav items can be added here if needed -->
+                    <!-- Additional nav items can be added here if needed -->
                 </ul>
                 <div class="d-none d-lg-flex">
-                  <a href="vendredi.html" class="btn btn-outline-success me-2 text-decoration-none text-dark">Vendredi</a>
-                  <a href="samedi.html" class="btn btn-outline-primary text-decoration-none text-dark">Samedi</a>
-                  <a href="dimanche.html" class="btn btn-outline-primary text-decoration-none text-dark ms-2">dimanche</a>                  
+                    <a href="vendredi.html" class="btn btn-outline-success me-2 text-decoration-none text-dark">Vendredi</a>
+                    <a href="samedi.html" class="btn btn-outline-primary text-decoration-none text-dark">Samedi</a>
+                    <a href="dimanche.html" class="btn btn-outline-primary text-decoration-none text-dark ms-2">Dimanche</a>
                 </div>
                 <div class="dropdown d-lg-none ms-auto">
                     <a href="vendredi.html" class="btn btn-outline-success me-2 text-decoration-none text-dark">Vendredi</a>
-                    <a href="samedi.html" class="btn btn-outline-primary text-decoration-none text-dark">Samedi</a> 
-                    <a href="dimanche.html" class="btn btn-outline-success me-2 text-decoration-none text-dark">dimanche</a> 
+                    <a href="samedi.html" class="btn btn-outline-primary text-decoration-none text-dark">Samedi</a>
+                    <a href="dimanche.html" class="btn btn-outline-success me-2 text-decoration-none text-dark">Dimanche</a>
                 </div>
-              </div>
             </div>
-          </nav>
-          
         </div>
-        <div  class="content">
-        
-            <div class="lefttop">
-                <i class="fas fa-volume-mute logo" style="display: none;" onclick="logo()"></i>
-                <div id="contentvedio"></div>
-            </div>
-            <div class="contentright">
-                <div class="righttop"  >
-                    <!--Les jours --->
-                    <!-- ../galerie/all.html -->
-                    <div class="btn-group btnjour" role="group" id="btnjour" aria-label="Basic example">
-                        <button style="outline: none;" class="btnjr1   btnjr text-decoration-none text-light" ><a href="vendredi.html" class="text-decoration-none text-light">Vendredi</a></button>
-                        <button style="outline: none;" class="btnjr3 "><a href="samedi.html" class="btnjr4 text-decoration-none text-light">samedi</a></button>
-                        <button style="outline: none;" class="btnjr3"><a href="dimanche.html" class="btnjr4 text-decoration-none text-light">dimanche</a></button>
-                    </div>
-                    <div id="contentjour"  class="contentjour">
-                        
-                    <div class="jr1 jr ">
-                        <h1> Vendredi  5 juillet 2024 </h1> 
-                        <div class="txtnormal"> 
+    </nav>
 
-                            <li data-id="1">
-                                <a onclick='vedioSource("https://youtu.be/IBpjiB7kvVw?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)' >
-                                    <img src="./thems/1  jour/MOSTAPHA MOKHTARI.png" width="100%" alt="">
-                                    <span class="btnplay">
-                                        <img src="./img/requires/Play.png" width="10%" alt="">
-                                    </span>
-                                </a>
-                            </li>
+    <div class="content">
+        <div class="lefttop">
+            <i class="fas fa-volume-mute logo" style="display: none;" onclick="logo()"></i>
+            <div id="contentvedio"></div>
+        </div>
+        <div class="contentright">
+            <div class="righttop">
+                <div class="btn-group btnjour" role="group" id="btnjour" aria-label="Basic example">
+                    <button style="outline: none;" class="btnjr1 btnjr text-decoration-none text-light">
+                        <a href="vendredi.html" class="text-decoration-none text-light">Vendredi</a>
+                    </button>
+                    <button style="outline: none;" class="btnjr3">
+                        <a href="samedi.html" class="btnjr4 text-decoration-none text-light">Samedi</a>
+                    </button>
+                    <button style="outline: none;" class="btnjr3">
+                        <a href="dimanche.html" class="btnjr4 text-decoration-none text-light">Dimanche</a>
+                    </button>
+                </div>
+                <div id="contentjour" class="contentjour">
+                    <div class="jr1 jr">
+                        <h1>Vendredi 5 juillet 2024</h1>
+                        <div class="container mt-5">
+                            <!-- Session 1 -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="mb-0">
+                                        <a class="btn btn-link session-toggle text-decoration-none" data-bs-toggle="collapse" href="#session1" role="button" aria-expanded="false" aria-controls="session1">
+                                            Sessions Pratiques 1
+                                        </a>
+                                    </h5>
+                                </div>
+                                <div id="session1" class="collapse">
+                                    <div class="card-body">
+                                        <ul class="list-unstyled rounded">
+                                            <!-- Video items go here -->
+                                            <li>
+                                                <a href="javascript:void(0)" onclick='vedioSource("https://youtu.be/IBpjiB7kvVw?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)'>
+                                                    <img src="./thems/1  jour/MOSTAPHA MOKHTARI.png" class="img-fluid" alt="">
+                                                    <span class="btnplay">
+                                                        <img src="./img/requires/Play.png" width="10%" alt="">
+                                                    </span>
+                                                </a>
+                                            </li>
 
-                            <li data-id="2">
-                                <a onclick='vedioSource("https://youtu.be/mGa8TMQEbgs?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)' >
-                                    <img src="./thems/1  jour/PATRICK DAOUD.png" width="100%" alt="">
-                                    <span class="btnplay">
-                                        <img src="./img/requires/Play.png" width="10%" alt="">
-                                    </span>
-                                </a>
-                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)" onclick='vedioSource("https://youtu.be/IBpjiB7kvVw?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)'>
+                                                    <img src="./thems/1  jour/MOSTAPHA MOKHTARI.png" class="img-fluid" alt="">
+                                                    <span class="btnplay">
+                                                        <img src="./img/requires/Play.png" width="10%" alt="">
+                                                    </span>
+                                                </a>
+                                            </li>
 
-                            <li data-id="3">
-                                <a onclick='vedioSource("https://youtu.be/2FkzyYOj97M?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)' >
-                                    <img src="./thems/1  jour/Pr Etienne JAVOUHEY.png" width="100%" alt="">
-                                    <span class="btnplay">
-                                        <img src="./img/requires/Play.png" width="10%" alt="">
-                                    </span>
-                                </a>
-                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)" onclick='vedioSource("https://youtu.be/IBpjiB7kvVw?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)'>
+                                                    <img src="./thems/1  jour/MOSTAPHA MOKHTARI.png" class="img-fluid" alt="">
+                                                    <span class="btnplay">
+                                                        <img src="./img/requires/Play.png" width="10%" alt="">
+                                                    </span>
+                                                </a>
+                                            </li>
 
-                            <li data-id="4">
-                                <a onclick='vedioSource("https://youtu.be/zH3Qm5DH7Do?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)' >
-                                    <img src="./thems/1  jour/Pr Etienne JAVOUHEY2.png" width="100%" alt="">
-                                    <span class="btnplay">
-                                        <img src="./img/requires/Play.png" width="10%" alt="">
-                                    </span>
-                                </a>
-                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)" onclick='vedioSource("https://youtu.be/IBpjiB7kvVw?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)'>
+                                                    <img src="./thems/1  jour/MOSTAPHA MOKHTARI.png" class="img-fluid" alt="">
+                                                    <span class="btnplay">
+                                                        <img src="./img/requires/Play.png" width="10%" alt="">
+                                                    </span>
+                                                </a>
+                                            </li>
 
-                            <li data-id="5">
-                                <a onclick='vedioSource("https://youtu.be/tL0gK6UHeqM?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)' >
-                                    <img src="./thems/1  jour/Pr Dominique.png" width="100%" alt="">
-                                    <span class="btnplay">
-                                        <img src="./img/requires/Play.png" width="10%" alt="">
-                                    </span>
-                                </a>
-                            </li>
-
-
-                            <li data-id="6">
-                                <a onclick='vedioSource("https://youtu.be/fsUhonkxiwc?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)' >
-                                    <img src="./thems/1  jour/NABILA SORAA.png" width="100%" alt="">
-                                    <span class="btnplay">
-                                        <img src="./img/requires/Play.png" width="10%" alt="">
-                                    </span>
-                                </a>
-                            </li>
-
-                            <li data-id="7">
-                                <a onclick='vedioSource("https://youtu.be/VWqOBQZdUtY?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)' >
-                                    <img src="./thems/1  jour/PATRICK TOUNIAN.png" width="100%" alt="">
-                                    <span class="btnplay">
-                                        <img src="./img/requires/Play.png" width="10%" alt="">
-                                    </span>
-                                </a>
-                            </li>
-
-                            <li data-id="8">
-                                <a onclick='vedioSource("https://youtu.be/SCob1YH5nKU?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)' >
-                                    <img src="./thems/1  jour/PATRICK TOUNIAN2.png" width="100%" alt="">
-                                    <span class="btnplay">
-                                        <img src="./img/requires/Play.png" width="10%" alt="">
-                                    </span>
-                                </a>
-                            </li>
-
-                            <li data-id="9">
-                                <a onclick='vedioSource("https://youtu.be/sf5uHi-wccA?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)' >
-                                    <img src="./thems/1  jour/Pr Marc BELLAICHE1.png" width="100%" alt="">
-                                    <span class="btnplay">
-                                        <img src="./img/requires/Play.png" width="10%" alt="">
-                                    </span>
-                                </a>
-                            </li>
-
-                            <li data-id="10">
-                                <a onclick='vedioSource("https://youtu.be/FWfzYvC0Uxg?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)' >
-                                    <img src="./thems/1  jour/Pr Marc BELLAICHE2.png" width="100%" alt="">
-                                    <span class="btnplay">
-                                        <img src="./img/requires/Play.png" width="10%" alt="">
-                                    </span>
-                                </a>
-                            </li>
-
-                            <li data-id="11">
-                                <a onclick='vedioSource("https://youtu.be/tCxnorhetzQ?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)' >
-                                    <img src="./thems/1  jour/Pr Marc BELLAICHE3.png" width="100%" alt="">
-                                    <span class="btnplay">
-                                        <img src="./img/requires/Play.png" width="10%" alt="">
-                                    </span>
-                                </a>
-                            </li>
-
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
+
+                            <!-- Session 2 -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="mb-0">
+                                        <a class="btn btn-link session-toggle text-decoration-none" data-bs-toggle="collapse" href="#session2" role="button" aria-expanded="false" aria-controls="session2">
+                                            Sessions Pratiques 2
+                                        </a>
+                                    </h5>
+                                </div>
+                                <div id="session2" class="collapse">
+                                    <div class="card-body">
+                                        <ul class="list-unstyled rounded">
+                                            <!-- Video items go here -->
+                                            <li>
+                                                <a href="javascript:void(0)" onclick='vedioSource("https://youtu.be/IBpjiB7kvVw?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)'>
+                                                    <img src="./thems/1  jour/MOSTAPHA MOKHTARI.png" class="img-fluid" alt="">
+                                                    <span class="btnplay">
+                                                        <img src="./img/requires/Play.png" width="10%" alt="">
+                                                    </span>
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="javascript:void(0)" onclick='vedioSource("https://youtu.be/IBpjiB7kvVw?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)'>
+                                                    <img src="./thems/1  jour/MOSTAPHA MOKHTARI.png" class="img-fluid" alt="">
+                                                    <span class="btnplay">
+                                                        <img src="./img/requires/Play.png" width="10%" alt="">
+                                                    </span>
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="javascript:void(0)" onclick='vedioSource("https://youtu.be/IBpjiB7kvVw?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)'>
+                                                    <img src="./thems/1  jour/MOSTAPHA MOKHTARI.png" class="img-fluid" alt="">
+                                                    <span class="btnplay">
+                                                        <img src="./img/requires/Play.png" width="10%" alt="">
+                                                    </span>
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="javascript:void(0)" onclick='vedioSource("https://youtu.be/IBpjiB7kvVw?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)'>
+                                                    <img src="./thems/1  jour/MOSTAPHA MOKHTARI.png" class="img-fluid" alt="">
+                                                    <span class="btnplay">
+                                                        <img src="./img/requires/Play.png" width="10%" alt="">
+                                                    </span>
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="javascript:void(0)" onclick='vedioSource("https://youtu.be/IBpjiB7kvVw?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)'>
+                                                    <img src="./thems/1  jour/MOSTAPHA MOKHTARI.png" class="img-fluid" alt="">
+                                                    <span class="btnplay">
+                                                        <img src="./img/requires/Play.png" width="10%" alt="">
+                                                    </span>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Session 3 -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="mb-0">
+                                        <a class="btn btn-link session-toggle text-decoration-none" data-bs-toggle="collapse" href="#session3" role="button" aria-expanded="false" aria-controls="session3">
+                                            Pause Café
+                                        </a>
+                                    </h5>
+                                </div>
+                                <div id="session3" class="collapse">
+                                    <div class="card-body">
+                                        <ul class="list-unstyled rounded">
+                                            <!-- Video items go here -->
+                                            <li>
+                                                <a href="javascript:void(0)" onclick='vedioSource("https://youtu.be/IBpjiB7kvVw?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)'>
+                                                    <img src="./thems/1  jour/MOSTAPHA MOKHTARI.png" class="img-fluid" alt="">
+                                                    <span class="btnplay">
+                                                        <img src="./img/requires/Play.png" width="10%" alt="">
+                                                    </span>
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="javascript:void(0)" onclick='vedioSource("https://youtu.be/IBpjiB7kvVw?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)'>
+                                                    <img src="./thems/1  jour/MOSTAPHA MOKHTARI.png" class="img-fluid" alt="">
+                                                    <span class="btnplay">
+                                                        <img src="./img/requires/Play.png" width="10%" alt="">
+                                                    </span>
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="javascript:void(0)" onclick='vedioSource("https://youtu.be/IBpjiB7kvVw?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)'>
+                                                    <img src="./thems/1  jour/MOSTAPHA MOKHTARI.png" class="img-fluid" alt="">
+                                                    <span class="btnplay">
+                                                        <img src="./img/requires/Play.png" width="10%" alt="">
+                                                    </span>
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="javascript:void(0)" onclick='vedioSource("https://youtu.be/IBpjiB7kvVw?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)'>
+                                                    <img src="./thems/1  jour/MOSTAPHA MOKHTARI.png" class="img-fluid" alt="">
+                                                    <span class="btnplay">
+                                                        <img src="./img/requires/Play.png" width="10%" alt="">
+                                                    </span>
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="javascript:void(0)" onclick='vedioSource("https://youtu.be/IBpjiB7kvVw?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)'>
+                                                    <img src="./thems/1  jour/MOSTAPHA MOKHTARI.png" class="img-fluid" alt="">
+                                                    <span class="btnplay">
+                                                        <img src="./img/requires/Play.png" width="10%" alt="">
+                                                    </span>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Session 4-->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="mb-0">
+                                        <a class="btn btn-link session-toggle text-decoration-none" data-bs-toggle="collapse" href="#session4" role="button" aria-expanded="false" aria-controls="session4">
+                                            Mot Du Président
+                                        </a>
+                                    </h5>
+                                </div>
+                                <div id="session4" class="collapse">
+                                    <div class="card-body">
+                                        <ul class="list-unstyled rounded">
+                                            <!-- Video items go here -->
+                                            <li>
+                                                <a href="javascript:void(0)" onclick='vedioSource("https://youtu.be/IBpjiB7kvVw?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)'>
+                                                    <img src="./thems/1  jour/MOSTAPHA MOKHTARI.png" class="img-fluid" alt="">
+                                                    <span class="btnplay">
+                                                        <img src="./img/requires/Play.png" width="10%" alt="">
+                                                    </span>
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="javascript:void(0)" onclick='vedioSource("https://youtu.be/IBpjiB7kvVw?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)'>
+                                                    <img src="./thems/1  jour/MOSTAPHA MOKHTARI.png" class="img-fluid" alt="">
+                                                    <span class="btnplay">
+                                                        <img src="./img/requires/Play.png" width="10%" alt="">
+                                                    </span>
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="javascript:void(0)" onclick='vedioSource("https://youtu.be/IBpjiB7kvVw?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)'>
+                                                    <img src="./thems/1  jour/MOSTAPHA MOKHTARI.png" class="img-fluid" alt="">
+                                                    <span class="btnplay">
+                                                        <img src="./img/requires/Play.png" width="10%" alt="">
+                                                    </span>
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="javascript:void(0)" onclick='vedioSource("https://youtu.be/IBpjiB7kvVw?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)'>
+                                                    <img src="./thems/1  jour/MOSTAPHA MOKHTARI.png" class="img-fluid" alt="">
+                                                    <span class="btnplay">
+                                                        <img src="./img/requires/Play.png" width="10%" alt="">
+                                                    </span>
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="javascript:void(0)" onclick='vedioSource("https://youtu.be/IBpjiB7kvVw?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)'>
+                                                    <img src="./thems/1  jour/MOSTAPHA MOKHTARI.png" class="img-fluid" alt="">
+                                                    <span class="btnplay">
+                                                        <img src="./img/requires/Play.png" width="10%" alt="">
+                                                    </span>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Session 5-->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="mb-0">
+                                        <a class="btn btn-link session-toggle text-decoration-none" data-bs-toggle="collapse" href="#session5" role="button" aria-expanded="false" aria-controls="session5">
+                                            Sessions Pratiques 1
+                                        </a>
+                                    </h5>
+                                </div>
+                                <div id="session5" class="collapse">
+                                    <div class="card-body">
+                                        <ul class="list-unstyled rounded">
+                                            <!-- Video items go here -->
+                                            <li>
+                                                <a href="javascript:void(0)" onclick='vedioSource("https://youtu.be/IBpjiB7kvVw?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)'>
+                                                    <img src="./thems/1  jour/MOSTAPHA MOKHTARI.png" class="img-fluid" alt="">
+                                                    <span class="btnplay">
+                                                        <img src="./img/requires/Play.png" width="10%" alt="">
+                                                    </span>
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="javascript:void(0)" onclick='vedioSource("https://youtu.be/IBpjiB7kvVw?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)'>
+                                                    <img src="./thems/1  jour/MOSTAPHA MOKHTARI.png" class="img-fluid" alt="">
+                                                    <span class="btnplay">
+                                                        <img src="./img/requires/Play.png" width="10%" alt="">
+                                                    </span>
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="javascript:void(0)" onclick='vedioSource("https://youtu.be/IBpjiB7kvVw?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)'>
+                                                    <img src="./thems/1  jour/MOSTAPHA MOKHTARI.png" class="img-fluid" alt="">
+                                                    <span class="btnplay">
+                                                        <img src="./img/requires/Play.png" width="10%" alt="">
+                                                    </span>
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="javascript:void(0)" onclick='vedioSource("https://youtu.be/IBpjiB7kvVw?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)'>
+                                                    <img src="./thems/1  jour/MOSTAPHA MOKHTARI.png" class="img-fluid" alt="">
+                                                    <span class="btnplay">
+                                                        <img src="./img/requires/Play.png" width="10%" alt="">
+                                                    </span>
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="javascript:void(0)" onclick='vedioSource("https://youtu.be/IBpjiB7kvVw?list=PL3GTuqTfM82wAuK_R9t796o607QRY44KN",this)'>
+                                                    <img src="./thems/1  jour/MOSTAPHA MOKHTARI.png" class="img-fluid" alt="">
+                                                    <span class="btnplay">
+                                                        <img src="./img/requires/Play.png" width="10%" alt="">
+                                                    </span>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
         </div>
+    </div>
 
-        <script src="js/js.js"></script>
-        <script src="js/rediffusion.js"></script>
-        <!-- lien de live -->
-        <a hidden id="cmclive" class="glightbox"></a>
-        <script src="./js/jqury.js"></script>
-        <script src="./js/bootstrap.bundle.min.js"></script>
-        <script src="./js/glightbox.min.js" id="glightbox"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-        <script src="../assets//js/poster.js"></script>
-        <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/js.js"></script>
+    <script src="js/rediffusion.js"></script>
+    <a hidden id="cmclive" class="glightbox"></a>
+    <script src="js/jqury.js"></script>
+    <script src="js/glightbox.min.js" id="glightbox"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="../assets/js/poster.js"></script>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+</body>
 </html>

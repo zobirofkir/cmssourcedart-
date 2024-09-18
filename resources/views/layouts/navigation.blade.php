@@ -15,21 +15,35 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="hover:text-indigo-500 dark:hover:text-indigo-400">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
                     <x-nav-link :href="route('themes.index')" :active="request()->routeIs('themes.index')" class="hover:text-indigo-500 dark:hover:text-indigo-400">
                         {{ __('Reddifusion') }}
                     </x-nav-link>
+
                     <x-nav-link :href="route('files.index')" :active="request()->routeIs('files.index')" id="exportButton" class="hover:text-indigo-500 dark:hover:text-indigo-400">
                         {{ __('Redifusion Files') }}
                     </x-nav-link>
+
                     <x-nav-link :href="route('items.index')" :active="request()->routeIs('items.index')" class="hover:text-indigo-500 dark:hover:text-indigo-400">
                         {{ __('Items') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('itemsfiles.index')" :active="request()->routeIs('itemsfiles.index')" class="hover:text-indigo-500 dark:hover:text-indigo-400">
+                        {{ __('Items Files') }}
+                    </x-nav-link>
+
                     <x-nav-link :href="route('programme.index')" :active="request()->routeIs('programme.index')" class="hover:text-indigo-500 dark:hover:text-indigo-400">
                         {{ __('Programme') }}
                     </x-nav-link>
+
                     <x-nav-link :href="route('eposter.index')" :active="request()->routeIs('eposter.index')" class="hover:text-indigo-500 dark:hover:text-indigo-400">
                         {{ __('E-Poster') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('e-poster.index')" :active="request()->routeIs('e-poster.index')" class="hover:text-indigo-500 dark:hover:text-indigo-400">
+                        {{ __('E-Poster Files') }}
+                    </x-nav-link>
+
                     <x-nav-link :href="route('project.export')" :active="request()->routeIs('project.export')" id="exportButton" class="hover:text-indigo-500 dark:hover:text-indigo-400">
                         {{ __('Export') }}
                     </x-nav-link>
@@ -84,15 +98,23 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="hover:bg-gray-100 dark:hover:bg-gray-800">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+
             <x-responsive-nav-link :href="route('themes.index')" :active="request()->routeIs('themes.index')" class="hover:bg-gray-100 dark:hover:bg-gray-800">
                 {{ __('Reddifusion') }}
             </x-responsive-nav-link>
+
             <x-responsive-nav-link :href="route('files.index')" :active="request()->routeIs('files.index')" class="hover:bg-gray-100 dark:hover:bg-gray-800">
                 {{ __('Reddifusion Files') }}
             </x-responsive-nav-link>
+
             <x-responsive-nav-link :href="route('items.index')" :active="request()->routeIs('items.index')" class="hover:bg-gray-100 dark:hover:bg-gray-800">
                 {{ __('Items') }}
             </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('itemsfiles.index')" :active="request()->routeIs('itemsfiles.index')" class="hover:bg-gray-100 dark:hover:bg-gray-800">
+                {{ __('Items Files') }}
+            </x-responsive-nav-link>
+
             <x-responsive-nav-link :href="route('programme.index')" :active="request()->routeIs('programme.index')" class="hover:bg-gray-100 dark:hover:bg-gray-800">
                 {{ __('Programme') }}
             </x-responsive-nav-link>
@@ -100,6 +122,11 @@
             <x-responsive-nav-link :href="route('eposter.index')" :active="request()->routeIs('eposter.index')" class="hover:bg-gray-100 dark:hover:bg-gray-800">
                 {{ __('E-Poster') }}
             </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('e-poster.index')" :active="request()->routeIs('e-poster.index')" class="hover:bg-gray-100 dark:hover:bg-gray-800">
+                {{ __('E-Poster Files') }}
+            </x-responsive-nav-link>
+
 
             <x-responsive-nav-link :href="route('project.export')" :active="request()->routeIs('eposter.index')" class="hover:bg-gray-100 dark:hover:bg-gray-800">
                 {{ __('Export') }}
