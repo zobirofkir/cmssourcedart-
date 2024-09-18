@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EposterRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -19,11 +20,9 @@ class EposterController extends Controller
         return view('eposter.create');
     }
 
-    public function store(Request $request)
+    public function store(EposterRequest $request)
     {
-        $request->validate([
-            'image' => 'required|file|mimes:png,jpg,jpeg|max:2048',
-        ]);
+        $request->validated();
 
         $file = $request->file('image');
         $fileName = $file->getClientOriginalName();
