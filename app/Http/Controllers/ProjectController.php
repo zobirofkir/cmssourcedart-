@@ -48,7 +48,7 @@ class ProjectController extends Controller
 
     public function index()
     {
-        $files = array_diff(scandir('/var/www/html/public/project'), ['..', '.']);
+        $files = array_diff(scandir('project/'), ['..', '.']);
         $projects = array_map(function ($file) {
             return (object) [
                 'name' => pathinfo($file, PATHINFO_FILENAME),
@@ -61,7 +61,7 @@ class ProjectController extends Controller
 
     public function destroy($name)
     {
-        $projectPath = '/var/www/html/public/project/' . $name;
+        $projectPath = 'project/' . $name;
 
         // Check if project directory exists
         if (is_dir($projectPath)) {
