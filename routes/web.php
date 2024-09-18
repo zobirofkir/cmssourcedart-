@@ -17,11 +17,17 @@ Route::get('/', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    
+    /**
+     * Profile Controller routes
+     */
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-
+    /**
+     * Reddifusion Controller routes
+     */
     Route::get('/reddifusion', [ThemeController::class, 'index'])->name('themes.index');
     Route::get('/reddifusion/edit/{day}/{theme}', [ThemeController::class, 'edit'])->name('themes.edit');
     Route::post('/reddifusion/update/{day}/{theme}', [ThemeController::class, 'update'])->name('themes.update');
@@ -29,20 +35,27 @@ Route::middleware('auth')->group(function () {
     Route::post('/reddifusion', [ThemeController::class, 'store'])->name('themes.store');
     Route::delete('/reddifusion/{day}/{theme}', [ThemeController::class, 'destroy'])->name('themes.destroy'); 
 
-
+    /**
+     * Items Controller routes
+     */
     Route::get('/items', [ItemController::class, 'index'])->name('items.index');
     Route::get('/items/edit/{itemName}', [ItemController::class, 'edit'])->name('items.edit');
     Route::post('/items', [ItemController::class, 'store'])->name('items.store');
     Route::put('/items/update/{itemName}', [ItemController::class, 'update'])->name('items.update');
     Route::delete('/items/delete/{itemName}', [ItemController::class, 'destroy'])->name('items.destroy');
 
-
+    /**
+     * Programme Controller routes
+     */
     Route::get('/programme', [ProgrameController::class, 'index'])->name('programme.index');
     Route::get('/programme/edit/{pdfName}', [ProgrameController::class, 'edit'])->name('programme.edit');
     Route::put('/programme/update/{pdfName}', [ProgrameController::class, 'update'])->name('programme.update');
     Route::delete('/programme/delete/{pdfName}', [ProgrameController::class, 'destroy'])->name('programme.destroy');
     Route::post('/programme', [ProgrameController::class, 'store'])->name('programme.store');
 
+    /**
+     * Eposter Controller routes
+     */
     Route::get('/eposter', [EposterController::class, 'index'])->name('eposter.index');
     Route::get('/eposter/create', [EposterController::class, 'create'])->name('eposter.create');
     Route::post('/eposter', [EposterController::class, 'store'])->name('eposter.store');
@@ -50,27 +63,39 @@ Route::middleware('auth')->group(function () {
     Route::get('/eposter/{imageName}/edit', [EposterController::class, 'edit'])->name('eposter.edit');
     Route::put('/eposter/{imageName}', [EposterController::class, 'update'])->name('eposter.update');
     
-
+    /**
+     * File Rediffusion Controller routes
+     */
     Route::get('/reddifusion/files', [FileRediffusionController::class, 'index'])->name('files.index');
     Route::get('/reddifusion/edit/{file}', [FileRediffusionController::class, 'edit'])->name('file.edit');
     Route::post('/reddifusion/update/{file}', [FileRediffusionController::class, 'update'])->name('file.update');
 
-
+    /**
+     * Eposter File Controller routes
+     */
     Route::get('/e-poster', [EposterFileController::class, 'index'])->name('e-poster.index');
     Route::get('/e-poster/edit/{file}', [EposterFileController::class, 'edit'])->name('e-poster.edit');
     Route::post('/e-poster/update/{file}', [EposterFileController::class, 'update'])->name('e-poster.update');
 
+    /**
+     * Item File Controller routes
+     */
     Route::get('/items/files', [ItemFileController::class, 'index'])->name('itemsfiles.index');
     Route::get('/items/files/edit/{file}', [ItemFileController::class, 'edit'])->name('itemsfiles.edit');
     Route::post('/items/files/update/{file}', [ItemFileController::class, 'update'])->name('itemsfiles.update');
     
-
+    /**
+     * Project Controller routes
+     */
     Route::get('/projects', [UploadController::class, 'index'])->name('projects.index');
     Route::get('/projects/create', [UploadController::class, 'create'])->name('projects.create');
     Route::post('/projects', [UploadController::class, 'store'])->name('projects.store');
     Route::delete('/projects/{name}', [UploadController::class, 'destroy'])->name('projects.destroy');
     Route::put('/projects/{name}', [UploadController::class, 'updatePath'])->name('projects.updatePath');
 
+    /**
+     * Export Controller routes
+     */
     Route::get('/eposter/export', [ExportController::class, 'export'])->name('project.export');
 });
 
