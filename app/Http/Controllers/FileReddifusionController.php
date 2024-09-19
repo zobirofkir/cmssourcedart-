@@ -18,6 +18,17 @@ class FileReddifusionController extends Controller
     }
 
     /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function store(Request $request)
+    {
+        return FileReddifusionFacade::store($request);
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param [type] $file
@@ -40,4 +51,25 @@ class FileReddifusionController extends Controller
         return FileReddifusionFacade::update($request, $file);
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param [type] $file
+     * @return void
+     */
+    public function destroy($file)
+    {
+        return FileReddifusionFacade::destroy($file);
+    }
+
+    /**
+     * Restore a file from the trash.
+     *
+     * @param string $file
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function restore($file)
+    {
+        return FileReddifusionFacade::restore($file);
+    }
 }

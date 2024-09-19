@@ -5,6 +5,8 @@ namespace App\Services\Services;
 use App\Services\Construct\FileReddifusionConstruct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+
 
 class FileReddifusionService implements FileReddifusionConstruct
 {
@@ -15,15 +17,63 @@ class FileReddifusionService implements FileReddifusionConstruct
      */
     public function index()
     {
-        // Define the path to the directory containing HTML files
         $directory = public_path('project/application/assets');
+        $trashDirectory = public_path('project/application/trash');
 
-        // Get all files from the directory and filter for HTML files
         $files = array_filter(scandir($directory), function($item) use ($directory) {
             return !is_dir($directory . DIRECTORY_SEPARATOR . $item) && pathinfo($item, PATHINFO_EXTENSION) === 'html';
         });
 
-        return view('themes.files.index', compact('files'));
+        $trashFiles = array_filter(scandir($trashDirectory), function($item) use ($trashDirectory) {
+            return !is_dir($trashDirectory . DIRECTORY_SEPARATOR . $item) && pathinfo($item, PATHINFO_EXTENSION) === 'html';
+        });
+
+        $filesList = array_map(function($file) use ($trashFiles) {
+            return [
+                'name' => $file,
+                'in_trash' => in_array($file, $trashFiles)
+            ];
+        }, $files);
+
+        return view('themes.files.index', compact('filesList', 'trashFiles'));
+    }        
+
+        
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function store(Request $request)
+    {
+        // Validate inputs
+        $request->validate([
+            'file_name' => 'required|string',
+        ]);
+
+        // Create filename and content variables
+        $fileName = $request->input('file_name') . '.html';
+        $content = $request->input('content');
+        $path = public_path("project/application/assets/{$fileName}");  // Ensure "themes" directory
+
+        // Ensure the directory exists or create it
+        if (!File::exists(dirname($path))) {
+            try {
+                File::makeDirectory(dirname($path), 0755, true);
+            } catch (\Exception $e) {
+                return redirect()->back()->withErrors('Failed to create directory: ' . $e->getMessage());
+            }
+        }
+
+        // Write content to file
+        try {
+            File::put($path, $content);
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors('Failed to write file: ' . $e->getMessage());
+        }
+
+        return redirect()->route('files.index')->with('success', 'HTML file created successfully.');
     }
 
     /**
@@ -67,6 +117,54 @@ class FileReddifusionService implements FileReddifusionConstruct
         } else {
             return response()->json(['error' => 'File not found.'], 404);
         }
+    }
+
+
+    /**
+     * Remove the specified resource from storage (soft delete).
+     *
+     * @param string $file
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy($file)
+    {
+        $filePath = public_path("project/application/assets/$file");
+        $trashPath = public_path("project/application/trash/$file");
+
+        // Ensure trash directory exists
+        if (!File::exists(public_path("project/application/trash"))) {
+            File::makeDirectory(public_path("project/application/trash"), 0755, true);
+        }
+
+        // Move the file to the trash folder for soft delete
+        if (File::exists($filePath)) {
+            File::move($filePath, $trashPath);
+
+            return redirect()->route('files.index')->with('success', 'File deleted successfully.');
+        }
+
+        return redirect()->route('files.index')->withErrors('File not found.');
+    }
+
+    /**
+     * Restore a file from the trash.
+     *
+     * @param string $file
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function restore($file)
+    {
+        $trashPath = public_path("project/application/trash/$file");
+        $filePath = public_path("project/application/assets/$file");
+
+        // Restore the file from trash
+        if (File::exists($trashPath)) {
+            File::move($trashPath, $filePath);
+
+            return redirect()->route('files.index')->with('success', 'File restored successfully.');
+        }
+
+        return redirect()->route('files.index')->withErrors('File not found in trash.');
     }
 
 }

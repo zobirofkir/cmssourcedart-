@@ -69,6 +69,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/reddifusion/files', [FileReddifusionController::class, 'index'])->name('files.index');
     Route::get('/reddifusion/edit/{file}', [FileReddifusionController::class, 'edit'])->name('file.edit');
     Route::post('/reddifusion/update/{file}', [FileReddifusionController::class, 'update'])->name('file.update');
+    Route::post('/reddifusion/store', [FileReddifusionController::class, 'store'])->name('file.store');
+    Route::delete('/reddifusion/{file}', [FileReddifusionController::class, 'destroy'])->name('file.delete');
+    Route::get('/reddifusion/{file}/restore', [FileReddifusionController::class, 'restore'])->name('file.restore');
     
     /**
      * Project Controller routes

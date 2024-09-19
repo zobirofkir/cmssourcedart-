@@ -14,6 +14,14 @@ interface FileReddifusionConstruct
     public function index();
 
     /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function store(Request $request);
+
+    /**
      * Show the form for creating a new resource.
      *
      * @param [type] $file
