@@ -8,7 +8,7 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ItemFileController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgrameController;
-use App\Http\Controllers\ThemeController;
+use App\Http\Controllers\ReddifusionController;
 use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,12 +28,12 @@ Route::middleware('auth')->group(function () {
     /**
      * Reddifusion Controller routes
      */
-    Route::get('/reddifusion', [ThemeController::class, 'index'])->name('themes.index');
-    Route::get('/reddifusion/edit/{day}/{theme}', [ThemeController::class, 'edit'])->name('themes.edit');
-    Route::post('/reddifusion/update/{day}/{theme}', [ThemeController::class, 'update'])->name('themes.update');
-    Route::put('/reddifusion/update/{day}/{theme}', [ThemeController::class, 'update'])->name('themes.update');
-    Route::post('/reddifusion', [ThemeController::class, 'store'])->name('themes.store');
-    Route::delete('/reddifusion/{day}/{theme}', [ThemeController::class, 'destroy'])->name('themes.destroy'); 
+    Route::get('/reddifusion', [ReddifusionController::class, 'index'])->name('themes.index');
+    Route::get('/reddifusion/edit/{day}/{theme}', [ReddifusionController::class, 'edit'])->name('themes.edit');
+    Route::post('/reddifusion/update/{day}/{theme}', [ReddifusionController::class, 'update'])->name('themes.update');
+    Route::put('/reddifusion/update/{day}/{theme}', [ReddifusionController::class, 'update'])->name('themes.update');
+    Route::post('/reddifusion', [ReddifusionController::class, 'store'])->name('themes.store');
+    Route::delete('/reddifusion/{day}/{theme}', [ReddifusionController::class, 'destroy'])->name('themes.destroy'); 
 
     /**
      * Items Controller routes

@@ -1,12 +1,13 @@
 <?php
+namespace App\Services\Services;
 
-namespace App\Http\Controllers;
+use App\Services\Construct\ReddifusionConstruct;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
-class ThemeController extends Controller
+class ReddifusionService implements ReddifusionConstruct
 {
     // Method to list all themes by day
     public function index()
