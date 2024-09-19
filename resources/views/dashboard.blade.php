@@ -11,16 +11,14 @@
                         <canvas id="myChart"></canvas>
                     </div>
                     
-                    <!-- Open Project in GitHub Codespaces Button -->
-                    <div class="mt-6 text-center">
-                        <a href="https://github.com/zobirofkir/cmssourcedart-" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded">
+                    <div class="md:flex md:justify-center md:mt-5 md:space-x-4 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0">
+                        <!-- Open Project in GitHub Codespaces Button -->
+                        <a href="https://github.com/zobirofkir/cmssourcedart-" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded whitespace-nowrap">
                             Open Project in GitHub Codespaces
                         </a>
-                    </div>
-                    
-                    <!-- Open Local Project Button -->
-                    <div class="mt-6 text-center">
-                        <a href="{{ url('/project/index.html') }}" target="_blank" class="bg-green-500 text-white px-4 py-2 rounded">
+                        
+                        <!-- Open Local Project Button -->
+                        <a href="{{ url('/project/index.html') }}" target="_blank" class="bg-green-500 text-white px-4 py-2 rounded whitespace-nowrap">
                             Open Local Project
                         </a>
                     </div>
