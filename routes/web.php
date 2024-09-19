@@ -69,20 +69,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/reddifusion/files', [FileReddifusionController::class, 'index'])->name('files.index');
     Route::get('/reddifusion/edit/{file}', [FileReddifusionController::class, 'edit'])->name('file.edit');
     Route::post('/reddifusion/update/{file}', [FileReddifusionController::class, 'update'])->name('file.update');
-
-    /**
-     * Eposter File Controller routes
-     */
-    Route::get('/e-poster', [EposterFileController::class, 'index'])->name('e-poster.index');
-    Route::get('/e-poster/edit/{file}', [EposterFileController::class, 'edit'])->name('e-poster.edit');
-    Route::post('/e-poster/update/{file}', [EposterFileController::class, 'update'])->name('e-poster.update');
-
-    /**
-     * Item File Controller routes
-     */
-    Route::get('/items/files', [ItemFileController::class, 'index'])->name('itemsfiles.index');
-    Route::get('/items/files/edit/{file}', [ItemFileController::class, 'edit'])->name('itemsfiles.edit');
-    Route::post('/items/files/update/{file}', [ItemFileController::class, 'update'])->name('itemsfiles.update');
     
     /**
      * Project Controller routes

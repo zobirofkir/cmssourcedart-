@@ -57,14 +57,6 @@
                         <x-nav-link :href="route('files.index')" :active="request()->routeIs('files.index')" class="block flex justify-center py-2 text-gray-800 dark:text-gray-300 hover:bg-indigo-500 dark:hover:bg-indigo-400 hover:text-white w-full">
                             {{ __('Redifusion Files') }}
                         </x-nav-link>
-
-                        {{-- <x-nav-link :href="route('e-poster.index')" :active="request()->routeIs('e-poster.index')" class="block w-full flex justify-center py-2 text-gray-800 dark:text-gray-300 hover:bg-indigo-500 dark:hover:bg-indigo-400 hover:text-white">
-                            {{ __('E-Poster Files') }}
-                        </x-nav-link>
-
-                        <x-nav-link :href="route('itemsfiles.index')" :active="request()->routeIs('itemsfiles.index')" class="block w-full flex justify-center py-2 text-gray-800 dark:text-gray-300 hover:bg-indigo-500 dark:hover:bg-indigo-400 hover:text-white">
-                            {{ __('Items Files') }}
-                        </x-nav-link> --}}
                     </div>
                 </div>
 
