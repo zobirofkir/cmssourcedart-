@@ -12,12 +12,15 @@ use Illuminate\Support\Facades\Storage;
 
 class ItemService implements ItemConstruct 
 {
-    // Method to list all items
+    /**
+     * Show the application dashboard.
+     *
+     * @return void
+     */
     public function index()
     {
         $basePath = public_path('project/application/assets/items');
         
-        // Get list of files
         $files = File::files($basePath);
         $items = [];
     
@@ -25,12 +28,17 @@ class ItemService implements ItemConstruct
             $items[basename($file)] = $file->getPathname();
         }
     
-        // Assuming you need a list of directories or similar data
-        $existingDays = []; // Define or calculate this if needed
+        $existingDays = []; 
     
         return view('items.index', compact('items', 'existingDays'));
     }
     
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @param ItemRequest $request
+     * @return void
+     */
     public function store(ItemRequest $request)
     {
         $request->validated();
@@ -39,13 +47,17 @@ class ItemService implements ItemConstruct
         $itemName = $image->getClientOriginalName();
         $destinationPath = public_path('project/application/assets/items');
 
-        // Move the uploaded image to the destination path
         $image->move($destinationPath, $itemName);
 
         return redirect()->route('items.index')->withSuccess('Item added successfully.');
     }
 
-    // Method to edit a specific item
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param [type] $itemName
+     * @return void
+     */
     public function edit($itemName)
     {
         $itemPath = public_path("project/application/assets/items/$itemName");
@@ -57,19 +69,22 @@ class ItemService implements ItemConstruct
         return redirect()->back()->withErrors('Item not found.');
     }
 
-    // Method to update an item
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param ItemRequest $request
+     * @param [type] $itemName
+     * @return void
+     */
     public function update(ItemRequest $request, $itemName)
     {
         $itemPath = public_path("project/application/assets/items/$itemName");
 
         if (File::exists($itemPath)) {
-            // Handle image upload if provided
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
 
-                // Ensure the uploaded file is an image and overwrite the old image
                 if ($image->isValid()) {
-                    // Move the new image to replace the old one
                     $newImagePath = public_path("project/application/assets/items/$itemName");
                     $image->move(dirname($newImagePath), $itemName);
                 }
@@ -81,7 +96,12 @@ class ItemService implements ItemConstruct
         return redirect()->back()->withErrors('Unable to update item.');
     }
 
-    // Method to delete an item
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param [type] $itemName
+     * @return void
+     */
     public function destroy($itemName)
     {
             $filePath = public_path("project/application/assets/items/$itemName");

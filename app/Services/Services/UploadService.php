@@ -11,6 +11,11 @@ use Illuminate\Support\Str;
 
 class UploadService implements UploadConstruct
 {
+    /**
+     * Show the application dashboard.
+     *
+     * @return void
+     */
     public function index()
     {
         $files = array_diff(scandir('project/'), ['..', '.']);
@@ -24,25 +29,32 @@ class UploadService implements UploadConstruct
         return view('projects.index', compact('projects'));
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return void
+     */
     public function create()
     {
         return view('projects.create');
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request $request
+     * @return void
+     */
     public function store(Request $request)
     {
-        $request->validate([
-            'file' => 'required|file', // Removed mime type restriction
-        ]);
+        $request->validate(['file' => 'required|file' ]);
 
         $file = $request->file('file');
         $filename = $file->getClientOriginalName();
-        $uploadPath = 'project/'; // Your target path
+        $uploadPath = 'project/'; 
 
-        // Move the uploaded file to the target directory with its original name
         $file->move($uploadPath, $filename);
 
-        // If the file is a ZIP file, handle extraction
         if ($file->getClientOriginalExtension() === 'zip') {
             $zip = new ZipArchive;
             $zipPath = $uploadPath . $filename;
@@ -51,7 +63,6 @@ class UploadService implements UploadConstruct
             if ($zip->open($zipPath) === TRUE) {
                 $zip->extractTo($destinationPath);
                 $zip->close();
-                // Remove the zip file after extraction
                 unlink($zipPath);
             } else {
                 return redirect()->back()->with('error', 'Failed to unzip the file.');
@@ -61,14 +72,17 @@ class UploadService implements UploadConstruct
         return redirect()->route('projects.index')->with('success', 'Project uploaded successfully.');
     }
 
-
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param [type] $name
+     * @return void
+     */
     public function destroy($name)
     {
         $projectPath = 'project/' . $name;
 
-        // Check if project directory exists
         if (is_dir($projectPath)) {
-            // Delete the directory and its contents
             $this->deleteDirectory($projectPath);
             return redirect()->route('projects.index')->with('success', 'Project deleted successfully.');
         }
@@ -76,6 +90,13 @@ class UploadService implements UploadConstruct
         return redirect()->route('projects.index')->with('error', 'Project not found.');
     }
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param Request $request
+     * @param [type] $name
+     * @return void
+     */
     public function updatePath(Request $request, $name)
     {
         $request->validate([
@@ -86,22 +107,18 @@ class UploadService implements UploadConstruct
         $oldPath = $baseDir . $name;
         $newPath = realpath($baseDir . $request->input('new_path'));
     
-        // Ensure the old path exists
         if (!is_dir($oldPath)) {
             return redirect()->route('projects.index')->with('error', 'Project not found.');
         }
     
-        // Check if the new path is within the base directory
         if ($newPath === false || !Str::startsWith($newPath, $baseDir)) {
             return redirect()->route('projects.index')->with('error', 'Invalid path provided.');
         }
     
-        // Ensure the new path does not already exist
         if (is_dir($newPath)) {
             return redirect()->route('projects.index')->with('error', 'New path already exists.');
         }
     
-        // Perform the rename operation
         if (rename($oldPath, $newPath)) {
             return redirect()->route('projects.index')->with('success', 'Project path updated successfully.');
         }
@@ -109,6 +126,12 @@ class UploadService implements UploadConstruct
         return redirect()->route('projects.index')->with('error', 'Failed to update project path.');
     }
     
+    /**
+     * Delete a directory and all of its contents.
+     *
+     * @param [type] $dir
+     * @return void
+     */
     private function deleteDirectory($dir)
     {
         if (is_dir($dir)) {

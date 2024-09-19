@@ -9,12 +9,15 @@ use Illuminate\Support\Facades\Storage;
 
 class ReddifusionService implements ReddifusionConstruct
 {
-    // Method to list all themes by day
+    /**
+     * Display a listing of the resource.
+     *
+     * @return void
+     */
     public function index()
     {
         $basePath = public_path('project/application/assets/thems');
         
-        // Get list of directories (days)
         $days = File::directories($basePath);
 
         $themes = [];
@@ -23,12 +26,17 @@ class ReddifusionService implements ReddifusionConstruct
             $themes[$dayName] = File::files($day);
         }
 
-        // Pass existing days to the view
         $existingDays = array_keys($themes);
 
         return view('themes.index', compact('themes', 'existingDays'));
     }
     
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request $request
+     * @return void
+     */
     public function store(Request $request)
     {
         $request->validate([
@@ -41,21 +49,24 @@ class ReddifusionService implements ReddifusionConstruct
         $theme = $request->input('theme');
         $image = $request->file('image');
 
-        // Define the path to store the image
         $path = public_path("project/application/assets/thems/$day");
 
-        // Ensure the directory exists
         if (!File::exists($path)) {
             File::makeDirectory($path, 0755, true);
         }
 
-        // Move the uploaded image to the destination path
         $image->move($path, $theme . '.' . $image->getClientOriginalExtension());
 
         return redirect()->route('themes.index')->withSuccess('Theme added successfully.');
     }
 
-    // Method to edit a specific theme
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param [type] $day
+     * @param [type] $theme
+     * @return void
+     */
     public function edit($day, $theme)
     {
         $themePath = public_path("project/application/assets/thems/$day/$theme");
@@ -68,25 +79,27 @@ class ReddifusionService implements ReddifusionConstruct
         return redirect()->back()->withErrors('Theme not found.');
     }
 
-    // Method to update a theme
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param Request $request
+     * @param [type] $day
+     * @param [type] $theme
+     * @return void
+     */
     public function update(Request $request, $day, $theme)
     {
         $themePath = public_path("project/application/assets/thems/$day/$theme");
 
-        // Update content if exists
         if (File::exists($themePath)) {
-            // Update theme content
             File::put($themePath, $request->input('content'));
 
-            // Handle image upload if provided
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
 
-                // Ensure the uploaded file is an image and overwrite the old image
                 if ($image->isValid()) {
                     $newImagePath = public_path("project/application/assets/thems/$day/$theme");
 
-                    // Move the new image to replace the old one
                     $image->move(dirname($newImagePath), basename($theme));
                 }
             }
@@ -97,7 +110,13 @@ class ReddifusionService implements ReddifusionConstruct
         return redirect()->back()->withErrors('Unable to update theme.');
     }
 
-    // Method to delete a theme
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param [type] $day
+     * @param [type] $theme
+     * @return void
+     */
     public function destroy($day, $theme)
     {
         $filePath = public_path("project/application/assets/thems/$day/$theme");

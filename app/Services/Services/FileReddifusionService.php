@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Storage;
 
 class FileReddifusionService implements FileReddifusionConstruct
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return void
+     */
     public function index()
     {
         // Define the path to the directory containing HTML files
@@ -21,6 +26,12 @@ class FileReddifusionService implements FileReddifusionConstruct
         return view('themes.files.index', compact('files'));
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param [type] $file
+     * @return void
+     */
     public function edit($file)
     {
         $filePath = public_path("project/application/assets/$file");
@@ -29,6 +40,13 @@ class FileReddifusionService implements FileReddifusionConstruct
         return view('themes.files.edit', compact('content', 'file'));
     }
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param Request $request
+     * @param [type] $file
+     * @return void
+     */
     public function update(Request $request, $file)
     {
         // Validate that 'content' field is provided

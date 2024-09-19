@@ -10,6 +10,11 @@ use ZipArchive;
 
 class ExportService implements ExportConstruct
 {
+    /**
+     * Export the project.
+     *
+     * @return void
+     */
     public function export()
     {
         $projectPath = public_path('project');

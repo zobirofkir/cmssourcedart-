@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\File;
 
 class  EposterService implements EposterConstruct
 {
+    /**
+     * Show the application dashboard.
+     *
+     * @return void
+     */
     public function index()
     {
         $images = File::files(public_path('project/application/e-poster/images'));
@@ -16,11 +21,22 @@ class  EposterService implements EposterConstruct
         return view('eposter.index', ['images' => $imageNames]);
     }
     
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return void
+     */
     public function create()
     {
         return view('eposter.create');
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param EposterRequest $request
+     * @return void
+     */
     public function store(EposterRequest $request)
     {
         $request->validated();
@@ -41,6 +57,12 @@ class  EposterService implements EposterConstruct
         }
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param [type] $imageName
+     * @return void
+     */
     public function edit($imageName)
     {
         $filePath = public_path("project/application/e-poster/images/$imageName");
@@ -52,6 +74,13 @@ class  EposterService implements EposterConstruct
         return view('eposter.edit', compact('imageName'));
     }
     
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param EposterRequest $request
+     * @param [type] $imageName
+     * @return void
+     */
     public function update(EposterRequest $request, $imageName)
     {
         $request->validated();
@@ -84,6 +113,12 @@ class  EposterService implements EposterConstruct
         return redirect()->back()->withErrors('No file uploaded.');
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param [type] $imageName
+     * @return void
+     */
     public function destroy($imageName)
     {
         $filePath = public_path("project/application/e-poster/images/$imageName");

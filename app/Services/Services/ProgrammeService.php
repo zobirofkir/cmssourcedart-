@@ -10,12 +10,15 @@ use Illuminate\Support\Facades\File;
 
 class ProgrammeService implements ProgrammeConstruct
 {
-    // List all PDFs
+    /**
+     * Display a listing of the resource.
+     *
+     * @return void
+     */
     public function index()
     {
         $basePath = public_path('project/application/assets/img/app/programme');
         
-        // Get list of files
         $files = File::files($basePath);
         $pdfs = [];
 
@@ -26,13 +29,22 @@ class ProgrammeService implements ProgrammeConstruct
         return view('programme.index', compact('pdfs'));
     }
 
-    // Show the form to add a new PDF
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return void
+     */
     public function create()
     {
         return view('programme.create');
     }
 
-    // Store a new PDF
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request $request
+     * @return void
+     */
     public function store(Request $request)
     {
         $request->validate([
@@ -44,12 +56,10 @@ class ProgrammeService implements ProgrammeConstruct
             $fileName = $file->getClientOriginalName(); // Get the original file name
             $filePath = public_path('project/application/assets/img/app/programme');
 
-            // Check if the directory exists
             if (!File::isDirectory($filePath)) {
                 File::makeDirectory($filePath, 0755, true);
             }
 
-            // Move the uploaded file to the target directory
             try {
                 $file->move($filePath, $fileName);
                 return redirect()->route('programme.index')->withSuccess('PDF uploaded successfully.');
@@ -61,7 +71,12 @@ class ProgrammeService implements ProgrammeConstruct
         return redirect()->back()->withErrors('No file uploaded.');
     }
 
-    // Show the form to edit a specific PDF
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param [type] $pdfName
+     * @return void
+     */
     public function edit($pdfName)
     {
         $pdfPath = public_path("project/application/assets/img/app/programme/$pdfName");
@@ -73,19 +88,22 @@ class ProgrammeService implements ProgrammeConstruct
         return redirect()->back()->withErrors('PDF not found.');
     }
 
-    // Update a specific PDF
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param Request $request
+     * @param [type] $pdfName
+     * @return void
+     */
     public function update(Request $request, $pdfName)
     {
         $pdfPath = public_path("project/application/assets/img/app/programme/$pdfName");
 
         if (File::exists($pdfPath)) {
-            // Handle PDF upload if provided
             if ($request->hasFile('pdf')) {
                 $file = $request->file('pdf');
 
-                // Ensure the uploaded file is a PDF and overwrite the old file
                 if ($file->isValid()) {
-                    // Move the new file to replace the old one
                     $newPdfPath = public_path("project/application/assets/img/app/programme/$pdfName");
                     $file->move(dirname($newPdfPath), $pdfName);
                 }
@@ -97,7 +115,12 @@ class ProgrammeService implements ProgrammeConstruct
         return redirect()->back()->withErrors('Unable to update PDF.');
     }
 
-    // Delete a specific PDF
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param [type] $pdfName
+     * @return void
+     */
     public function destroy($pdfName)
     {
         $filePath = public_path("project/application/assets/img/app/programme/$pdfName");
