@@ -7,7 +7,7 @@ use App\Http\Controllers\FileRediffusionController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ItemFileController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ProgrameController;
+use App\Http\Controllers\ProgrammeController;
 use App\Http\Controllers\ReddifusionController;
 use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
@@ -47,11 +47,11 @@ Route::middleware('auth')->group(function () {
     /**
      * Programme Controller routes
      */
-    Route::get('/programme', [ProgrameController::class, 'index'])->name('programme.index');
-    Route::get('/programme/edit/{pdfName}', [ProgrameController::class, 'edit'])->name('programme.edit');
-    Route::put('/programme/update/{pdfName}', [ProgrameController::class, 'update'])->name('programme.update');
-    Route::delete('/programme/delete/{pdfName}', [ProgrameController::class, 'destroy'])->name('programme.destroy');
-    Route::post('/programme', [ProgrameController::class, 'store'])->name('programme.store');
+    Route::get('/programme', [ProgrammeController::class, 'index'])->name('programme.index');
+    Route::get('/programme/edit/{pdfName}', [ProgrammeController::class, 'edit'])->name('programme.edit');
+    Route::put('/programme/update/{pdfName}', [ProgrammeController::class, 'update'])->name('programme.update');
+    Route::delete('/programme/delete/{pdfName}', [ProgrammeController::class, 'destroy'])->name('programme.destroy');
+    Route::post('/programme', [ProgrammeController::class, 'store'])->name('programme.store');
 
     /**
      * Eposter Controller routes

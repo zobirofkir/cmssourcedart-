@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Services\Services;
+
+use App\Services\Construct\ProgrammeConstruct;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
-class ProgrameController extends Controller
+
+class ProgrammeService implements ProgrammeConstruct
 {
     // List all PDFs
     public function index()
@@ -35,17 +38,17 @@ class ProgrameController extends Controller
         $request->validate([
             'pdf' => 'required|file|mimes:pdf|max:10240', // Validate PDF file
         ]);
-    
+
         if ($request->hasFile('pdf')) {
             $file = $request->file('pdf');
             $fileName = $file->getClientOriginalName(); // Get the original file name
             $filePath = public_path('project/application/assets/img/app/programme');
-    
+
             // Check if the directory exists
             if (!File::isDirectory($filePath)) {
                 File::makeDirectory($filePath, 0755, true);
             }
-    
+
             // Move the uploaded file to the target directory
             try {
                 $file->move($filePath, $fileName);
@@ -54,10 +57,10 @@ class ProgrameController extends Controller
                 return redirect()->back()->withErrors('Failed to upload PDF: ' . $e->getMessage());
             }
         }
-    
+
         return redirect()->back()->withErrors('No file uploaded.');
     }
-    
+
     // Show the form to edit a specific PDF
     public function edit($pdfName)
     {
