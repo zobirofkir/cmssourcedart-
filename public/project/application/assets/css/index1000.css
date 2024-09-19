@@ -14,17 +14,14 @@ body {
 }
 
 .listliks {
-  position: fixed;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  z-index: 9999;
-  top: 25%;
-  right: 10px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 40%; 
 }
 
 .listliks li {
-  flex: 0 0 auto;
+  flex: 0 0 calc(33.33% - 10px);
   margin-bottom: 5px;
   list-style: none;
   width: 50%;
@@ -48,107 +45,100 @@ body {
   }
 
   .listliks {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: 140%;
     flex-direction: column;
     align-items: center;
   }
 
   .listliks li {
-    width: 70%; /* Smaller button size */
-    margin-bottom: 10px; /* Space between buttons */
+    flex-basis: calc(100% - 10px);
+    margin-top: 22%;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    display: flex;
   }
 
   .listliks li a {
-    width: 100%;
-    text-align: center;
+    width: 80%;
+    margin: 0 auto;
   }
 
   .listliks li a img {
-    height: 80px; /* Smaller button size */
-    width: auto;
+    width: 100%;
+    margin-top: 60%; 
   }
 }
 
 @media (max-width: 768px) {
   .listliks {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: 140%;
     flex-direction: column;
     align-items: center;
   }
 
   .listliks li {
-    width: 100%; /* Smaller button size */
-    margin-bottom: 10px; /* Space between buttons */
+    flex-basis: calc(100% - 10px);
+    margin-top: 22%;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    display: flex;
   }
 
   .listliks li a {
-    width: 100%;
-    text-align: center;
+    width: 80%;
+    margin: 0 auto;
   }
 
   .listliks li a img {
-    height: 80px; /* Smaller button size */
-    width: auto;
+    width: 100%;
+    margin-top: 60%;
   }
 }
 
 @media (max-width: 480px) {
   .listliks {
-    top: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: 140%;
     flex-direction: column;
     align-items: center;
-    left: 40%;
   }
 
   .listliks li {
-    width: 100%; /* Smaller button size */
-    margin-bottom: 10px; /* Space between buttons */
+    flex-basis: calc(100% - 10px);
+    margin-top: 22%;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    display: flex;
   }
 
   .listliks li a {
-    width: 100%;
-    text-align: center;
+    width: 80%;
+    margin: 0 auto;
   }
 
   .listliks li a img {
-    height: 80px; /* Smaller button size */
-    width: auto;
+    width: 100%;
+    margin-top: 60%;
   }
 }
 
 /* Fixed button style */
 .fixed-button {
-  background-color: transparent;
+  position: fixed;
+  color: white;
+  padding: 10px 20px;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
-  margin-bottom: 10px; 
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  margin-left: -25%;
+  margin-top: 8%;
 }
 
 .fixed-button:hover {
   background-color: transparent;
-}
-
-/* Base styles */
-.btnPoster {
-  width: 40%;
-  height: 100%;
-  object-fit: cover;
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  margin: auto; /* Center the element */
-}
-
-/* Styles for small screens */
-@media (max-width: 480px) {
-  .btnPoster {
-    width: 100px; /* Adjust width as needed */
-    height: 100px; /* Adjust height as needed */
-    margin: auto; /* Center the element */
-  }
 }
