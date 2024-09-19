@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Services\Services;
 
+use App\Services\Construct\FileReddifusionConstruct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class FileRediffusionController extends Controller
+class FileReddifusionService implements FileReddifusionConstruct
 {
     public function index()
     {
@@ -49,4 +50,5 @@ class FileRediffusionController extends Controller
             return response()->json(['error' => 'File not found.'], 404);
         }
     }
+
 }

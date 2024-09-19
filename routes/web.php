@@ -3,7 +3,7 @@
 use App\Http\Controllers\EposterController;
 use App\Http\Controllers\EposterFileController;
 use App\Http\Controllers\ExportController;
-use App\Http\Controllers\FileRediffusionController;
+use App\Http\Controllers\FileReddifusionController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ItemFileController;
 use App\Http\Controllers\ProfileController;
@@ -66,9 +66,9 @@ Route::middleware('auth')->group(function () {
     /**
      * File Rediffusion Controller routes
      */
-    Route::get('/reddifusion/files', [FileRediffusionController::class, 'index'])->name('files.index');
-    Route::get('/reddifusion/edit/{file}', [FileRediffusionController::class, 'edit'])->name('file.edit');
-    Route::post('/reddifusion/update/{file}', [FileRediffusionController::class, 'update'])->name('file.update');
+    Route::get('/reddifusion/files', [FileReddifusionController::class, 'index'])->name('files.index');
+    Route::get('/reddifusion/edit/{file}', [FileReddifusionController::class, 'edit'])->name('file.edit');
+    Route::post('/reddifusion/update/{file}', [FileReddifusionController::class, 'update'])->name('file.update');
 
     /**
      * Eposter File Controller routes
