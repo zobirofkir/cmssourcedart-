@@ -64,4 +64,26 @@ class ReddifusionController extends Controller
     {
         return ReddifusionFacade::destroy($day, $theme);
     }
+
+    /**
+     * Create a new day in storage.
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function createDay(Request $request)
+    {
+        return ReddifusionFacade::createDay($request);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param [type] $day
+     * @return void
+     */
+    public function destroyDay($day)
+    {
+        return ReddifusionFacade::destroyDay($day);
+    }
 }

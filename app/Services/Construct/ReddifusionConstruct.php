@@ -48,4 +48,20 @@ interface ReddifusionConstruct
      * @return void
      */
     public function destroy($day, $theme);
+
+    /**
+     * Create a new day in storage.
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function createDay(Request $request);    
+
+    /**
+     * Remove the specified day from storage.
+     *
+     * @param string $day
+     * @return void
+     */
+    public function destroyDay($day);
 }

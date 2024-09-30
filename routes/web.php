@@ -34,6 +34,9 @@ Route::middleware('auth')->group(function () {
     Route::put('/reddifusion/update/{day}/{theme}', [ReddifusionController::class, 'update'])->name('themes.update');
     Route::post('/reddifusion', [ReddifusionController::class, 'store'])->name('themes.store');
     Route::delete('/reddifusion/{day}/{theme}', [ReddifusionController::class, 'destroy'])->name('themes.destroy'); 
+    Route::post('themes/create-day', [ReddifusionController::class, 'createDay'])->name('themes.createDay');
+    Route::delete('themes/destroy-day/{day}', [ReddifusionController::class, 'destroyDay'])->name('themes.destroyDay');
+
 
     /**
      * Items Controller routes

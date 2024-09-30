@@ -128,4 +128,54 @@ class ReddifusionService implements ReddifusionConstruct
 
         return redirect()->back()->withErrors('Theme not found.');
     }
+
+    /**
+     * Store a newly created day in storage.
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function createDay(Request $request)
+    {
+        $request->validate([
+            'day' => 'required|string',
+            'file' => 'required|file|mimes:png',
+        ]);
+    
+        $day = $request->input('day');
+        $path = public_path("project/application/assets/thems/$day");
+    
+        // Check if the directory already exists
+        if (!File::exists($path)) {
+            File::makeDirectory($path, 0755, true);
+    
+            // Handle file upload
+            $file = $request->file('file');
+            $file->move($path, $file->getClientOriginalName());
+    
+            return redirect()->route('themes.index')->withSuccess('Day created successfully.');
+        }
+    
+        return redirect()->route('themes.index')->withErrors('Day already exists.');
+    }
+    
+    
+    /**
+     * Remove the specified day from storage.
+     *
+     * @param string $day
+     * @return void
+     */
+    public function destroyDay($day)
+    {
+        $path = public_path("project/application/assets/thems/$day");
+
+        if (File::exists($path)) {
+            File::deleteDirectory($path);
+            return redirect()->route('themes.index')->withSuccess('Day deleted successfully.');
+        }
+
+        return redirect()->back()->withErrors('Day not found.');
+    }
+
 }
