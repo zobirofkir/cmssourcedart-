@@ -3,6 +3,7 @@
 use App\Http\Controllers\EposterController;
 use App\Http\Controllers\EposterFileController;
 use App\Http\Controllers\ExportController;
+use App\Http\Controllers\FileItemController;
 use App\Http\Controllers\FileReddifusionController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ItemFileController;
@@ -76,6 +77,17 @@ Route::middleware('auth')->group(function () {
     Route::delete('/reddifusion/{file}', [FileReddifusionController::class, 'destroy'])->name('file.delete');
     Route::get('/reddifusion/{file}/restore', [FileReddifusionController::class, 'restore'])->name('file.restore');
     
+
+    /**
+     * File Item Controller Routes
+     */
+    Route::get('/item/files', [FileItemController::class, 'index'])->name('item.index');
+    Route::get('/item/edit/{file}', [FileItemController::class, 'edit'])->name('item.edit');
+    Route::post('/item/update/{file}', [FileItemController::class, 'update'])->name('item.update');
+    Route::post('/item/store', [FileItemController::class, 'store'])->name('item.store');
+    Route::delete('/item/{file}', [FileItemController::class, 'destroy'])->name('item.delete');
+    Route::get('/item/{file}/restore', [FileItemController::class, 'restore'])->name('item.restore');
+
     /**
      * Project Controller routes
      */
