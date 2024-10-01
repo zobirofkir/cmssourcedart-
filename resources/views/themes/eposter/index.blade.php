@@ -4,7 +4,7 @@
 
         <!-- Form to create a new HTML file -->
         {{-- <div class="mb-4">
-            <form action="{{ route('item.store') }}" method="POST" class="space-y-4">
+            <form action="{{ route('eposter.store') }}" method="POST" class="space-y-4">
                 @csrf
                 <div>
                     <label for="file_name" class="block text-sm font-medium text-gray-700 dark:text-gray-400">File Name</label>
@@ -46,16 +46,16 @@
                                 {{ $file['name'] }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                <a href="{{ route('item.edit', $file['name']) }}" class="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-300">
+                                <a href="{{ route('eposter.edit', $file['name']) }}" class="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-300">
                                     Edit
                                 </a>
-                                {{-- <form action="{{ route('item.delete', $file['name']) }}" method="POST" style="display:inline-block;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300 ml-4">
-                                        Delete
-                                    </button>
-                                </form> --}}
+                                    {{-- <form action="{{ route('eposter.delete', $file['name']) }}" method="POST" style="display:inline-block;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300 ml-4">
+                                            Delete
+                                        </button>
+                                    </form> --}}
                             </td>
                         </tr>
                     @endforeach
@@ -86,7 +86,7 @@
                                         {{ $file }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                        <form action="{{ route('item.restore', $file) }}" method="GET" style="display:inline-block;">
+                                        <form action="{{ route('eposter.restore', $file) }}" method="GET" style="display:inline-block;">
                                             @csrf
                                             <button type="submit" class="text-green-600 hover:text-green-900 dark:text-green-400 dark:hover:text-green-300">
                                                 Restore

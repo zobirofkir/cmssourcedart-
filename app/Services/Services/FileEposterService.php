@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
 
-class FileItemService implements FileItemConstruct
+class FileEposterService implements FileItemConstruct
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class FileItemService implements FileItemConstruct
      */
     public function index()
     {
-        $directory = public_path('project/');
-        $trashDirectory = public_path('project/');
+        $directory = public_path('project/application/e-poster/');
+        $trashDirectory = public_path('project/application/e-poster/');
 
         $files = array_filter(scandir($directory), function($item) use ($directory) {
             return !is_dir($directory . DIRECTORY_SEPARATOR . $item) && pathinfo($item, PATHINFO_EXTENSION) === 'html';
@@ -34,7 +34,7 @@ class FileItemService implements FileItemConstruct
             ];
         }, $files);
 
-        return view('themes.items.index', compact('filesList', 'trashFiles'));
+        return view('themes.eposter.index', compact('filesList', 'trashFiles'));
     }        
 
         
@@ -54,7 +54,7 @@ class FileItemService implements FileItemConstruct
         // Create filename and content variables
         $fileName = $request->input('file_name') . '.html';
         $content = $request->input('content');
-        $path = public_path("project/{$fileName}");  // Ensure "themes" directory
+        $path = public_path("project/application/e-poster/{$fileName}");  // Ensure "themes" directory
 
         // Ensure the directory exists or create it
         if (!File::exists(dirname($path))) {
@@ -83,10 +83,10 @@ class FileItemService implements FileItemConstruct
      */
     public function edit($file)
     {
-        $filePath = public_path("project/$file");
+        $filePath = public_path("project/application/e-poster/$file");
         $content = file_get_contents($filePath);
 
-        return view('themes.items.edit', compact('content', 'file'));
+        return view('themes.eposter.edit', compact('content', 'file'));
     }
 
     /**
@@ -103,7 +103,7 @@ class FileItemService implements FileItemConstruct
             'content' => 'required',
         ]);
     
-        $filePath = public_path("project/$file");
+        $filePath = public_path("project/application/e-poster/$file");
     
         // Check if the file exists before attempting to write
         if (file_exists($filePath)) {
@@ -127,22 +127,22 @@ class FileItemService implements FileItemConstruct
      */
     public function destroy($file)
     {
-        $filePath = public_path("project/$file");
-        $trashPath = public_path("project/trash/item/$file");
+        $filePath = public_path("project/application/e-poster/$file");
+        $trashPath = public_path("project/trash/eposter/$file");
 
         // Ensure trash directory exists
-        if (!File::exists(public_path("project/trash/item"))) {
-            File::makeDirectory(public_path("project/trash/item"), 0755, true);
+        if (!File::exists(public_path("project/trash/eposter"))) {
+            File::makeDirectory(public_path("project/trash/eposter"), 0755, true);
         }
 
         // Move the file to the trash folder for soft delete
         if (File::exists($filePath)) {
             File::move($filePath, $trashPath);
 
-            return redirect()->route('item.index')->with('success', 'File deleted successfully.');
+            return redirect()->route('eposter.index')->with('success', 'File deleted successfully.');
         }
 
-        return redirect()->route('item.index')->withErrors('File not found.');
+        return redirect()->route('eposter.index')->withErrors('File not found.');
     }
 
     /**
@@ -160,10 +160,10 @@ class FileItemService implements FileItemConstruct
         if (File::exists($trashPath)) {
             File::move($trashPath, $filePath);
 
-            return redirect()->route('item.index')->with('success', 'File restored successfully.');
+            return redirect()->route('eposter.index')->with('success', 'File restored successfully.');
         }
 
-        return redirect()->route('item.index')->withErrors('File not found in trash.');
+        return redirect()->route('eposter.index')->withErrors('File not found in trash.');
     }
 
 }

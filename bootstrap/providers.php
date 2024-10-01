@@ -4,6 +4,7 @@ return [
     App\Providers\AppServiceProvider::class,
     App\Providers\EposterServiceProvider::class,
     App\Providers\ExportServiceProvider::class,
+    App\Providers\FileEposterProvider::class,
     App\Providers\FileItemProvider::class,
     App\Providers\FileReddifusionServiceProvider::class,
     App\Providers\ItemServiceProvider::class,

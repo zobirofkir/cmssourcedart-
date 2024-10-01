@@ -61,6 +61,10 @@
                         <x-nav-link :href="route('item.index')" :active="request()->routeIs('item.index')" class="block flex justify-center py-2 text-gray-800 dark:text-gray-300 hover:bg-indigo-500 dark:hover:bg-indigo-400 hover:text-white w-full">
                             {{ __('Item Files') }}
                         </x-nav-link>
+
+                        <x-nav-link :href="route('eposter.index')" :active="request()->routeIs('eposter.index')" class="block flex justify-center py-2 text-gray-800 dark:text-gray-300 hover:bg-indigo-500 dark:hover:bg-indigo-400 hover:text-white w-full">
+                            {{ __('Eposter Files') }}
+                        </x-nav-link>
                     </div>
                 </div>
 

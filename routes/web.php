@@ -3,6 +3,7 @@
 use App\Http\Controllers\EposterController;
 use App\Http\Controllers\EposterFileController;
 use App\Http\Controllers\ExportController;
+use App\Http\Controllers\FileEposterController;
 use App\Http\Controllers\FileItemController;
 use App\Http\Controllers\FileReddifusionController;
 use App\Http\Controllers\ItemController;
@@ -87,6 +88,16 @@ Route::middleware('auth')->group(function () {
     Route::post('/item/store', [FileItemController::class, 'store'])->name('item.store');
     Route::delete('/item/{file}', [FileItemController::class, 'destroy'])->name('item.delete');
     Route::get('/item/{file}/restore', [FileItemController::class, 'restore'])->name('item.restore');
+
+    /**
+     * File E-Poster Controller routes
+     */
+    Route::get('/eposter/files', [FileEposterController::class, 'index'])->name('eposter.index');
+    Route::get('/eposter/edit/{file}', [FileEposterController::class, 'edit'])->name('eposter.edit');
+    Route::post('/eposter/update/{file}', [FileEposterController::class, 'update'])->name('eposter.update');
+    Route::post('/eposter/store', [FileEposterController::class, 'store'])->name('eposter.store');
+    Route::delete('/eposter/{file}', [FileEposterController::class, 'destroy'])->name('eposter.delete');
+    Route::get('/eposter/{file}/restore', [FileEposterController::class, 'restore'])->name('eposter.restore');
 
     /**
      * Project Controller routes
