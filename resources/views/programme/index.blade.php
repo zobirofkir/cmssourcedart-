@@ -7,7 +7,7 @@
                 Please upload a PDF file named "programme.pdf".
             </h4>
 
-            <form action="{{ route('programme.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('programme.store') }}" method="POST" enctype="multipart/form-data" onsubmit="return validateFileName();">
                 @csrf
                 <div class="mb-4">
                     <label for="pdf" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Upload PDF</label>
@@ -43,4 +43,19 @@
             @endforeach
         </div>
     </div>
+
+    <script>
+        function validateFileName() {
+            const fileInput = document.getElementById('pdf');
+            const fileName = fileInput.files[0]?.name;
+
+            if (fileName !== 'programme.pdf') {
+                alert('The programme should be named programme.pdf');
+                window.location.reload();
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 </x-app-layout>
