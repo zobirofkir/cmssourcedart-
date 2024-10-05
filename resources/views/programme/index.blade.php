@@ -3,6 +3,10 @@
         <!-- Section for adding a new PDF -->
         <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-8">
             <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4 text-center">Add New PDF</h2>
+            <h4 class="text-lg font-semibold text-yellow-500 mb-4 text-center">
+                Please upload a PDF file named "programme.pdf".
+            </h4>
+
             <form action="{{ route('programme.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-4">

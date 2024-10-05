@@ -44,11 +44,11 @@ class ItemService implements ItemConstruct
         $request->validate([
             'name' => 'required|integer',
             'image' => 'required|image',
-            'custom_path' => 'nullable|string',
+            'category' => 'required|string',
         ]);
     
-        $itemNumber = $request->input('name'); // Use the selected name number as the identifier
-        $itemPath = $request->input('custom_path');
+        $itemNumber = $request->input('name');
+        $itemPath = $request->input('category');
         $image = $request->file('image');
     
         $destinationPath = public_path('project/application/assets/items');
@@ -57,13 +57,13 @@ class ItemService implements ItemConstruct
             mkdir($destinationPath, 0755, true);
         }
     
-        // Construct the filename using the selected name number and the image extension
-        $fileName = $itemNumber . ($itemPath ? '/' . $itemPath : '') . '.' . $image->getClientOriginalExtension();
+        $fileName = $itemNumber . '.' . $image->getClientOriginalExtension();
+        
         $image->move($destinationPath, $fileName);
     
         return redirect()->route('items.index')->withSuccess('Item added successfully.');
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      *

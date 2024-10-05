@@ -9,26 +9,24 @@
     <link rel="stylesheet" href="./application/assets/css/index1000.css">
 </head>
 <body>
-    <img class="background">
-    
+    <img class="background" />
+
     <div class="content">
         <ul class="listliks" id="buttonList">
             <!-- Buttons will be dynamically inserted here -->
         </ul>
     </div>
 
-    <script type="text/javascript" src="./application/e-poster/js/jquery.min.js"></script>
-    <script type="text/javascript" src="./application/assets/js/bootstrap.min.js"></script> 
+    <script src="./application/e-poster/js/jquery.min.js"></script>
+    <script src="./application/assets/js/bootstrap.min.js"></script>
     <script src="./application/e-poster/js/swiper-bundle.min.js"></script>
     <script src="./application/e-poster/js/glightbox.min.js" id="glightbox"></script>
     <script src="./application/e-poster/js/main.js" id="main"></script>
     <script src="./application/assets/js/accueil.js"></script>
 
     <script>
-        // Custom path variable (you can set this dynamically based on your application context)
-        const customPath = './application/assets/items/'; // Set your custom path here
-
-        // Function to check if an image exists
+        const customPath = './application/assets/items/';
+    
         function imageExists(imgPath) {
             return new Promise((resolve) => {
                 const img = new Image();
@@ -37,22 +35,42 @@
                 img.src = imgPath;
             });
         }
-
-        // Function to generate buttons dynamically based on existing images
+    
         async function generateButtons() {
             const buttonList = document.getElementById("buttonList");
-            let buttonIndex = 1;
-            const maxImages = 100; // Define a reasonable upper limit to avoid an infinite loop
-
+            const maxImages = 100;
+    
             for (let i = 1; i <= maxImages; i++) {
-                const imgPath = `${customPath}${i}.png`; // Use the custom path
+                const imgPath = `${customPath}${i}.png`;
                 const exists = await imageExists(imgPath);
-
+    
                 if (exists) {
+                    let category;
+    
+                    // Logic to determine the category based on your criteria
+                    if (i % 3 === 0) {
+                        category = 'reddifusion'; // Example condition for reddifusion
+                    } else if (i % 2 === 0) {
+                        category = 'programme'; // Example condition for programme
+                    } else {
+                        category = 'e-poster'; // Default to e-poster
+                    }
+    
+                    let redirectPath;
+                    if (category === 'e-poster') {
+                        redirectPath = 'application/e-poster/index.html'; // Default path for e-poster
+                    } else if (category === 'programme') {
+                        redirectPath = 'application/assets/img/app/programme/programme.pdf'; // Default path for programme
+                    } else if (category === 'reddifusion') {
+                        redirectPath = 'application/assets/vendredi.html'; // Default path for reddifusion
+                    } else {
+                        redirectPath = imgPath; // Fallback to image path
+                    }
+    
                     const listItem = document.createElement("li");
                     listItem.innerHTML = `
-                        <a href="${imgPath}" class="fixed-button" style="margin-top: 5px;">
-                            <img src="${imgPath}" class="btnPoster">
+                        <a href="${redirectPath}" class="fixed-button" style="margin-top: 5px;" rel="noopener noreferrer">
+                            <img src="${imgPath}" class="btnPoster" alt="Poster image ${i}">
                         </a>
                     `;
                     buttonList.appendChild(listItem);
@@ -61,9 +79,10 @@
                 }
             }
         }
-
-        // Call the function to generate buttons
-        generateButtons();
-    </script>
+    
+        document.addEventListener("DOMContentLoaded", () => {
+            generateButtons();
+        });
+    </script>    
 </body>
 </html>
