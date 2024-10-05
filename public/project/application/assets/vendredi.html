@@ -6,13 +6,9 @@
     <title>Société Marocaine Neurochirurgie</title>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/css1.css" />
-    <!-------------La chatgraphi------------------>
     <link rel="stylesheet" href="css/GlobaleColor.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -34,32 +30,14 @@
                     <!-- Additional nav items can be added here if needed -->
                 </ul>
                 <div class="d-none d-lg-flex">
-                    <a
-                        href="vendredi.html"
-                        class="btn btn-outline-success me-2 text-decoration-none text-dark"
-                    >Vendredi</a>
-                    <a
-                        href="samedi.html"
-                        class="btn btn-outline-primary text-decoration-none text-dark"
-                    >Samedi</a>
-                    <a
-                        href="dimanche.html"
-                        class="btn btn-outline-primary text-decoration-none text-dark ms-2"
-                    >dimanche</a>
+                    <a href="vendredi.html" class="btn btn-outline-success me-2 text-decoration-none text-dark">Vendredi</a>
+                    <a href="samedi.html" class="btn btn-outline-primary text-decoration-none text-dark">Samedi</a>
+                    <a href="dimanche.html" class="btn btn-outline-primary text-decoration-none text-dark ms-2">dimanche</a>
                 </div>
                 <div class="dropdown d-lg-none ms-auto">
-                    <a
-                        href="vendredi.html"
-                        class="btn btn-outline-success me-2 text-decoration-none text-dark"
-                    >Vendredi</a>
-                    <a
-                        href="samedi.html"
-                        class="btn btn-outline-primary text-decoration-none text-dark"
-                    >Samedi</a>
-                    <a
-                        href="dimanche.html"
-                        class="btn btn-outline-success me-2 text-decoration-none text-dark"
-                    >dimanche</a>
+                    <a href="vendredi.html" class="btn btn-outline-success me-2 text-decoration-none text-dark">Vendredi</a>
+                    <a href="samedi.html" class="btn btn-outline-primary text-decoration-none text-dark">Samedi</a>
+                    <a href="dimanche.html" class="btn btn-outline-success me-2 text-decoration-none text-dark">dimanche</a>
                 </div>
             </div>
         </div>
@@ -67,13 +45,8 @@
 
     <div class="content">
         <div class="lefttop">
-            <i
-                class="fas fa-volume-mute logo"
-                style="display: none"
-                onclick="logo()"
-            ></i>
+            <i class="fas fa-volume-mute logo" style="display: none" onclick="logo()"></i>
             <div id="contentvedio">
-                <!-- Video element to display the selected video -->
                 <video id="videoPlayer" width="100%" controls>
                     <source id="videoSource" src="" type="video/mp4">
                     Your browser does not support the video tag.
@@ -82,40 +55,21 @@
         </div>
         <div class="contentright">
             <div class="righttop">
-                <!--Les jours --->
-                <div
-                    class="btn-group btnjour"
-                    role="group"
-                    id="btnjour"
-                    aria-label="Basic example"
-                >
-                    <button
-                        style="outline: none"
-                        class="btnjr1 btnjr text-decoration-none text-light"
-                    >
-                        <a
-                            href="vendredi.html"
-                            class="text-decoration-none text-light"
-                        >Vendredi</a>
+                <div class="btn-group btnjour" role="group" id="btnjour" aria-label="Basic example">
+                    <button style="outline: none" class="btnjr1 btnjr text-decoration-none text-light">
+                        <a href="vendredi.html" class="text-decoration-none text-light">Vendredi</a>
                     </button>
                     <button style="outline: none" class="btnjr3">
-                        <a
-                            href="samedi.html"
-                            class="btnjr4 text-decoration-none text-light"
-                        >samedi</a>
+                        <a href="samedi.html" class="btnjr4 text-decoration-none text-light">samedi</a>
                     </button>
                     <button style="outline: none" class="btnjr3">
-                        <a
-                            href="dimanche.html"
-                            class="btnjr4 text-decoration-none text-light"
-                        >dimanche</a>
+                        <a href="dimanche.html" class="btnjr4 text-decoration-none text-light">dimanche</a>
                     </button>
                 </div>
                 <div id="contentjour" class="contentjour">
                     <div class="jr1 jr">
                         <h1>Vendredi 5 juillet 2024</h1>
                         <div class="txtnormal">
-                            <!-- Dynamic theme and video loading area -->
                             <ul id="themesContainer"></ul>
                         </div>
                     </div>
@@ -126,7 +80,6 @@
 
     <script src="js/js.js"></script>
     <script src="js/rediffusion.js"></script>
-    <!-- lien de live -->
     <a hidden id="cmclive" class="glightbox"></a>
     <script src="./js/jqury.js"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
@@ -138,24 +91,19 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Function to generate themes dynamically based on a naming pattern
-        function generateThemes(numThemes) {
-            const themes = [];
-            for (let i = 1; i <= numThemes; i++) {
-                themes.push({
-                    id: i + 10, // Start ID from 11
-                    img: `${i}.png`, // Dynamic image name
-                    video: `${i}.mp4`, // Dynamic video name
-                });
-            }
-            return themes;
-        }
+        const themes = []; // Initialize themes array
+        const maxThemes = 100; // Define the number of themes
 
-        const themes = generateThemes(100); 
+        for (let i = 1; i <= maxThemes; i++) {
+            themes.push({
+                id: i + 10, // Start ID from 11
+                img: `${i}.png`, // Dynamic image name
+                video: `${i}.mp4`, // Dynamic video name
+            });
+        }
 
         const themesContainer = document.getElementById("themesContainer");
 
-        // Loop through the themes and create list items
         themes.forEach((theme) => {
             const listItem = document.createElement("li");
             listItem.setAttribute("data-id", theme.id);

@@ -138,24 +138,19 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Function to generate themes dynamically based on a naming pattern
-        function generateThemes(numThemes) {
-            const themes = [];
-            for (let i = 1; i <= numThemes; i++) {
-                themes.push({
-                    id: i + 10, // Start ID from 11
-                    img: `${i}.png`, // Dynamic image name
-                    video: `${i}.mp4`, // Dynamic video name
-                });
-            }
-            return themes;
-        }
+        const themes = []; // Initialize themes array
+        const maxThemes = 100; // Define the number of themes
 
-        const themes = generateThemes(100); 
+        for (let i = 1; i <= maxThemes; i++) {
+            themes.push({
+                id: i + 10, // Start ID from 11
+                img: `${i}.png`, // Dynamic image name
+                video: `${i}.mp4`, // Dynamic video name
+            });
+        }
 
         const themesContainer = document.getElementById("themesContainer");
 
-        // Loop through the themes and create list items
         themes.forEach((theme) => {
             const listItem = document.createElement("li");
             listItem.setAttribute("data-id", theme.id);
