@@ -25,11 +25,11 @@
                     </h3>
 
                     <h5 class="text-yellow-500 text-sm text-center">
-                        Veuillez sélectionner 1. "programme", 2. "rediffusion" et 3. "e-poster" pour utiliser des itinéraires exacts.                    </h5>
+                        Veuillez sélectionner 1. "programme", 2. "rediffusion" et 3. "e-poster" pour utiliser des itinéraires exacts.                    
+                    </h5>
                 </div>
                 
                 <div class="mb-4">
-                    
                     <label for="category" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Select Category</label>
                     <select name="category" id="category" class="mt-1 p-2 border border-gray-300 rounded-lg w-full text-black">
                         <option value="programme">1. programme</option>
@@ -55,13 +55,15 @@
                                class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-500 transition-colors duration-200">
                                 {{ $itemName }}
                             </a>
-                            <form action="{{ route('items.destroy', ['itemName' => $itemName]) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this item?');">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-300 transition-colors duration-200">
-                                    Delete
-                                </button>
-                            </form>
+                            @if ($itemName !== 'affiche 02.jpg' && $itemName !== 'affiche0.jpg')
+                                <form action="{{ route('items.destroy', ['itemName' => $itemName]) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-300 transition-colors duration-200">
+                                        Delete
+                                    </button>
+                                </form>
+                            @endif
                         </li>
                     </ul>
                 </div>
