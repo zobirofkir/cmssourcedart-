@@ -93,18 +93,14 @@ class ItemService implements ItemConstruct
         $itemPath = public_path("project/application/assets/items/$itemName");
     
         if (File::exists($itemPath)) {
-            // Validate the request
             $request->validated();
     
-            // Check if a new image file is uploaded
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
     
                 if ($image->isValid()) {
-                    // Delete the old image
                     File::delete($itemPath);
     
-                    // Move the new image with the same name
                     $image->move(dirname($itemPath), $itemName);
                 }
             }

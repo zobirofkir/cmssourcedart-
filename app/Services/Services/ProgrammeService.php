@@ -48,12 +48,12 @@ class ProgrammeService implements ProgrammeConstruct
     public function store(Request $request)
     {
         $request->validate([
-            'pdf' => 'required|file|mimes:pdf|max:10240', // Validate PDF file
+            'pdf' => 'required|file|mimes:pdf|max:10240',
         ]);
 
         if ($request->hasFile('pdf')) {
             $file = $request->file('pdf');
-            $fileName = $file->getClientOriginalName(); // Get the original file name
+            $fileName = $file->getClientOriginalName();
             $filePath = public_path('project/application/assets/img/app/programme');
 
             if (!File::isDirectory($filePath)) {

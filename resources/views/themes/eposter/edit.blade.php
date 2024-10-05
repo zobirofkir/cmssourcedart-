@@ -1,73 +1,35 @@
 <x-app-layout>
+    <div class="container mx-auto mt-10">
+        <h1 class="text-3xl font-bold mb-5 dark:text-white text-black">Edit E-Poster: {{ $imageName }}</h1>
 
-    <div class="w-full h-full">
-        <h2 class="text-xl font-semibold mb-4 dark:text-white text-black text-center font-bold">Edit {{ $file }}</h2>
-        <form id="fileEditForm" class="w-full h-full relative">
+        <!-- Update form to handle file uploads -->
+        <form action="{{ route('eposter.update', ['imageName' => $imageName]) }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div id="editor" style="height: calc(100vh - 120px); border: 1px solid #ddd;"></div>
-            <textarea name="content" id="editorContent" style="display:none;">{{ $content }}</textarea>
+            @method('PUT')
 
-            <!-- Sticky save button -->
-            <div class="mt-4 fixed bottom-4 right-4 z-10">
-                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            <!-- Image Preview -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-5">
+                <h2 class="text-xl font-semibold mb-4">Current Image Preview</h2>
+                <div class="border border-gray-300 p-4 rounded-lg bg-gray-50">
+                    <img src="{{ asset('project/application/e-poster/images/' . $imageName) }}" alt="{{ $imageName }}" class="w-full max-w-md rounded-lg shadow-lg">
+                </div>
+            </div>
+
+            <!-- Image Upload -->
+            <div class="mt-5">
+                <label for="image" class="block text-sm font-medium text-gray-700 dark:text-white text-black">Upload New Image</label>
+                <input type="file" name="image" id="image" class="mt-2 p-2 border border-gray-300 rounded-lg w-full dark:text-white text-black">
+            </div>
+
+            <!-- Action buttons -->
+            <div class="mt-5">
+                <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
                     Save Changes
                 </button>
+                <a href="{{ route('eposter.index') }}" class="ml-4 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">
+                    Cancel
+                </a>
             </div>
         </form>
     </div>
-
-    <!-- Toastify CSS and JS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.1/min/vs/loader.js"></script>
-    <script>
-        require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.1/min/vs' }});
-        require(['vs/editor/editor.main'], function() {
-            var editor = monaco.editor.create(document.getElementById('editor'), {
-                value: {!! json_encode($content) !!},
-                language: 'html',
-                theme: 'vs-dark'
-            });
-
-            // Handle form submission via AJAX
-            document.getElementById('fileEditForm').addEventListener('submit', function(event) {
-                event.preventDefault(); // Prevent the default form submission
-
-                // Get the editor content
-                document.getElementById('editorContent').value = editor.getValue();
-
-                // Prepare form data
-                var formData = new FormData(this);
-
-                // Send the AJAX request
-                fetch("{{ route('eposter.update', $file) }}", {
-                    method: 'POST',
-                    headers: {
-                        'X-CSRF-TOKEN': document.querySelector('input[name=_token]').value
-                    },
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        Toastify({
-                            text: "File updated successfully!",
-                            duration: 3000,  // Duration in milliseconds
-                            gravity: "top",  // Display on top
-                            position: "right",  // Show it on the right
-                            backgroundColor: "#4CAF50",  // Success green color
-                            close: true  // Add close button
-                        }).showToast();
-                    } else if (data.error) {
-                        console.error(data.error); // Log error to the console
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error); // Log any fetch errors to the console
-                });
-            });
-        });
-    </script>
-
 </x-app-layout>

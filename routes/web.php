@@ -88,27 +88,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/reddifusion/{file}', [FileReddifusionController::class, 'destroy'])->name('file.delete');
     Route::get('/reddifusion/{file}/restore', [FileReddifusionController::class, 'restore'])->name('file.restore');
     
-
-    /**
-     * File Item Controller Routes
-     */
-    Route::get('/item/files', [FileItemController::class, 'index'])->name('item.index');
-    Route::get('/item/edit/{file}', [FileItemController::class, 'edit'])->name('item.edit');
-    Route::post('/item/update/{file}', [FileItemController::class, 'update'])->name('item.update');
-    Route::post('/item/store', [FileItemController::class, 'store'])->name('item.store');
-    Route::delete('/item/{file}', [FileItemController::class, 'destroy'])->name('item.delete');
-    Route::get('/item/{file}/restore', [FileItemController::class, 'restore'])->name('item.restore');
-
-    /**
-     * File E-Poster Controller routes
-     */
-    Route::get('/eposter/files', [FileEposterController::class, 'index'])->name('eposter.index');
-    Route::get('/eposter/edit/{file}', [FileEposterController::class, 'edit'])->name('eposter.edit');
-    Route::post('/eposter/update/{file}', [FileEposterController::class, 'update'])->name('eposter.update');
-    Route::post('/eposter/store', [FileEposterController::class, 'store'])->name('eposter.store');
-    Route::delete('/eposter/{file}', [FileEposterController::class, 'destroy'])->name('eposter.delete');
-    Route::get('/eposter/{file}/restore', [FileEposterController::class, 'restore'])->name('eposter.restore');
-
     /**
      * Project Controller routes
      */

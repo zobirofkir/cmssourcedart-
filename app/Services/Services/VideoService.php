@@ -96,20 +96,16 @@ class VideoService implements VideoConstruct
         $videoPath = public_path("project/application/assets/videos/$day/$videoName");
     
         if (File::exists($videoPath)) {
-            // Validate the request
             $request->validate([
                 'video' => 'nullable|file|mimes:mp4|max:20480', // Allow null to keep the existing video
             ]);
     
-            // Check if a new video file is uploaded
             if ($request->hasFile('video')) {
                 $video = $request->file('video');
     
                 if ($video->isValid()) {
-                    // Delete the old video
                     File::delete($videoPath);
     
-                    // Move the new video with the same name
                     $video->move(dirname($videoPath), $videoName);
                 }
             }

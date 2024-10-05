@@ -47,7 +47,6 @@ class FileReddifusionService implements FileReddifusionConstruct
      */
     public function store(Request $request)
     {
-        // Validate inputs
         $request->validate([
             'file_name' => 'required|string',
         ]);
@@ -57,7 +56,6 @@ class FileReddifusionService implements FileReddifusionConstruct
         $content = $request->input('content');
         $path = public_path("project/application/assets/{$fileName}");  // Ensure "themes" directory
 
-        // Ensure the directory exists or create it
         if (!File::exists(dirname($path))) {
             try {
                 File::makeDirectory(dirname($path), 0755, true);
@@ -66,7 +64,6 @@ class FileReddifusionService implements FileReddifusionConstruct
             }
         }
 
-        // Write content to file
         try {
             File::put($path, $content);
         } catch (\Exception $e) {
@@ -99,14 +96,12 @@ class FileReddifusionService implements FileReddifusionConstruct
      */
     public function update(Request $request, $file)
     {
-        // Validate that 'content' field is provided
         $request->validate([
             'content' => 'required',
         ]);
     
         $filePath = public_path("project/application/assets/$file");
     
-        // Check if the file exists before attempting to write
         if (file_exists($filePath)) {
             try {
                 file_put_contents($filePath, $request->input('content'));

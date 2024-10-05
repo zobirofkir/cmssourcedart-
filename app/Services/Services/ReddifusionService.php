@@ -145,11 +145,9 @@ class ReddifusionService implements ReddifusionConstruct
         $day = $request->input('day');
         $path = public_path("project/application/assets/thems/$day");
     
-        // Check if the directory already exists
         if (!File::exists($path)) {
             File::makeDirectory($path, 0755, true);
     
-            // Handle file upload
             $file = $request->file('file');
             $file->move($path, $file->getClientOriginalName());
     
