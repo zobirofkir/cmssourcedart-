@@ -16,17 +16,24 @@
                 </div>
 
                 <div>
-                    <h2 class="text-2xl font-semibold text-yellow-500 text-center ">Warning</h2>
+                    <h2 class="text-2xl font-semibold text-yellow-500 text-center ">
+                        Warning
+                    </h2>
+
                     <h3 class="text-yellow-500 text-center">
                         Please select 1."programme" and 2."rediffusion" and 3."e-poster" to use exact routes.
                     </h3>
+
+                    <h5 class="text-yellow-500 text-sm text-center">
+                        Veuillez sélectionner 1. "programme", 2. "rediffusion" et 3. "e-poster" pour utiliser des itinéraires exacts.                    </h5>
                 </div>
+                
                 <div class="mb-4">
                     <label for="category" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Select Category</label>
                     <select name="category" id="category" class="mt-1 p-2 border border-gray-300 rounded-lg w-full text-black">
-                        <option value="programme">programme</option>
-                        <option value="reddifusion">reddifusion</option>
-                        <option value="e-poster">e-poster</option>
+                        <option value="programme">1. programme</option>
+                        <option value="reddifusion">2. reddifusion</option>
+                        <option value="e-poster">3. e-poster</option>
                     </select>
                 </div>
                                                             
