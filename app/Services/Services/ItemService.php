@@ -38,20 +38,33 @@ class ItemService implements ItemConstruct
      *
      * @param ItemRequest $request
      * @return void
-     */
+        */
     public function store(ItemRequest $request)
     {
-        $request->validated();
+        // Validate the incoming request
+        $request->validate([
+            'name' => 'required|integer', // Ensure the item name is a string
+            'image' => 'required|image', // Ensure the image is required and is a valid image
+        ]);
 
-        $image = $request->file('image');
-        $itemName = $image->getClientOriginalName();
+        // Get the item name and the uploaded image
+        $itemName = $request->input('name'); // Get the item name from the request
+        $image = $request->file('image'); // Get the uploaded image
+
+        // Define the path to store the image
         $destinationPath = public_path('project/application/assets/items');
 
-        $image->move($destinationPath, $itemName);
+        // Check if the directory exists; create if it doesn't
+        if (!is_dir($destinationPath)) {
+            mkdir($destinationPath, 0755, true); // Create the directory if it doesn't exist
+        }
+
+        // Move the uploaded file to the destination path with the item name as the file name
+        $image->move($destinationPath, $itemName . '.' . $image->getClientOriginalExtension());
 
         return redirect()->route('items.index')->withSuccess('Item added successfully.');
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -79,23 +92,30 @@ class ItemService implements ItemConstruct
     public function update(ItemRequest $request, $itemName)
     {
         $itemPath = public_path("project/application/assets/items/$itemName");
-
+    
         if (File::exists($itemPath)) {
+            // Validate the request
+            $request->validated();
+    
+            // Check if a new image file is uploaded
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
-
+    
                 if ($image->isValid()) {
-                    $newImagePath = public_path("project/application/assets/items/$itemName");
-                    $image->move(dirname($newImagePath), $itemName);
+                    // Delete the old image
+                    File::delete($itemPath);
+    
+                    // Move the new image with the same name
+                    $image->move(dirname($itemPath), $itemName);
                 }
             }
-
+    
             return redirect()->route('items.index')->withSuccess('Item updated successfully.');
         }
-
+    
         return redirect()->back()->withErrors('Unable to update item.');
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *

@@ -11,4 +11,5 @@ return [
     App\Providers\ProgrammeServiceProvider::class,
     App\Providers\ReffifusionServiceProvider::class,
     App\Providers\UploadServiceProvider::class,
+    App\Providers\VideoServiceProvider::class,
 ];

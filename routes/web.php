@@ -12,6 +12,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgrammeController;
 use App\Http\Controllers\ReddifusionController;
 use App\Http\Controllers\UploadController;
+use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -40,6 +41,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('themes/destroy-day/{day}', [ReddifusionController::class, 'destroyDay'])->name('themes.destroyDay');
 
 
+    Route::get('/videos', [VideoController::class, 'index'])->name('videos.index');
+    Route::get('/videos/create', [VideoController::class, 'createDay'])->name('videos.create'); // Changed to createDay
+    Route::post('/videos', [VideoController::class, 'store'])->name('videos.store');
+    
+    // Include 'day' as a parameter for the following routes
+    Route::get('/videos/{day}/edit/{videoName}', [VideoController::class, 'edit'])->name('videos.edit');
+    Route::put('/videos/{day}/update/{videoName}', [VideoController::class, 'update'])->name('videos.update');
+    Route::delete('/videos/{day}/delete/{videoName}', [VideoController::class, 'destroy'])->name('videos.destroy');
+        
     /**
      * Items Controller routes
      */

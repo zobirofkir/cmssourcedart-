@@ -16,8 +16,8 @@
                     </select>
                 </div>
                 <div class="mb-4">
-                    <label for="theme" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Theme Name</label>
-                    <input type="text" name="theme" id="theme" class="mt-1 p-2 border border-gray-300 rounded-lg w-full" required>
+                    <label for="theme" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Theme Number</label>
+                    <input type="number" name="theme" id="theme" class="mt-1 p-2 border border-gray-300 rounded-lg w-full" required>
                 </div>
                 <div class="mb-4">
                     <label for="image" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Upload Image</label>
