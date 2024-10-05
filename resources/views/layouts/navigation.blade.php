@@ -39,11 +39,13 @@
                     <!-- Reddifusion Dropdown -->
                     <div x-data="{ open: false }" class="relative inline-block">
                         <button @click="open = !open" class="inline-flex items-center justify-center text-gray-800 dark:text-gray-300 hover:text-indigo-500 dark:hover:text-indigo-400 focus:outline-none">
-                            {{ __('Reddifusion') }}
+                            <x-nav-link :href="route('project.export')" :active="request()->routeIs('project.export')" id="exportButton" class="hover:text-indigo-500 dark:hover:text-indigo-400">
+                                {{ __('Reddifusion') }}
+                            </x-nav-link>        
                             <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
-                        </button>
+                    </button>
                         
                         <!-- Dropdown Menu -->
                         <div x-show="open" @click.away="open = false" class="absolute right-0 bg-white dark:bg-gray-800 shadow-lg rounded-md mt-2 w-48 z-10">
