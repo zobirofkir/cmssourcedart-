@@ -46,23 +46,23 @@
     
                 if (exists) {
                     let category;
-    
+
                     // Logic to determine the category based on your criteria
-                    if (i % 3 === 0) {
-                        category = 'reddifusion'; // Example condition for reddifusion
-                    } else if (i % 2 === 0) {
-                        category = 'programme'; // Example condition for programme
+                    if (i % 3 === 1) {
+                        category = 'programme'; // First category
+                    } else if (i % 3 === 2) {
+                        category = 'reddifusion'; // Second category
                     } else {
-                        category = 'e-poster'; // Default to e-poster
+                        category = 'e-poster'; // Third category
                     }
     
                     let redirectPath;
-                    if (category === 'e-poster') {
-                        redirectPath = 'application/e-poster/index.html'; // Default path for e-poster
-                    } else if (category === 'programme') {
-                        redirectPath = 'application/assets/img/app/programme/programme.pdf'; // Default path for programme
+                    if (category === 'programme') {
+                        redirectPath = 'application/assets/img/app/programme/programme.pdf'; // Path for programme
                     } else if (category === 'reddifusion') {
-                        redirectPath = 'application/assets/vendredi.html'; // Default path for reddifusion
+                        redirectPath = 'application/assets/vendredi.html'; // Path for reddifusion
+                    } else if (category === 'e-poster') {
+                        redirectPath = 'application/e-poster/index.html'; // Path for e-poster
                     } else {
                         redirectPath = imgPath; // Fallback to image path
                     }

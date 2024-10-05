@@ -32,10 +32,6 @@
                         {{ __('E-Poster') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('project.export')" :active="request()->routeIs('project.export')" id="exportButton" class="hover:text-indigo-500 dark:hover:text-indigo-400">
-                        {{ __('Export') }}
-                    </x-nav-link>
-
                     <!-- Reddifusion Dropdown -->
                     <div x-data="{ open: false }" class="relative inline-block">
                         <button @click="open = !open" class="inline-flex items-center justify-center text-gray-800 dark:text-gray-300 hover:text-indigo-500 dark:hover:text-indigo-400 focus:outline-none">
@@ -47,15 +43,20 @@
                             </svg>
                     </button>
                         
-                        <!-- Dropdown Menu -->
-                        <div x-show="open" @click.away="open = false" class="absolute right-0 bg-white dark:bg-gray-800 shadow-lg rounded-md mt-2 w-48 z-10">
-                            <x-nav-link :href="route('themes.index')" :active="request()->routeIs('themes.index')" class="block flex justify-center py-2 text-gray-800 dark:text-gray-300 hover:bg-indigo-500 dark:hover:bg-indigo-400 hover:text-white w-full">
-                                {{ __('Themes') }}
-                            </x-nav-link>
-                            <x-nav-link :href="route('videos.index')" :active="request()->routeIs('videos.index')" class="block flex justify-center py-2 text-gray-800 dark:text-gray-300 hover:bg-indigo-500 dark:hover:bg-indigo-400 hover:text-white w-full">
-                                {{ __('Videos') }}
-                            </x-nav-link>
-                        </div>
+                    <!-- Dropdown Menu -->
+                    <div x-show="open" @click.away="open = false" class="absolute right-0 bg-white dark:bg-gray-800 shadow-lg rounded-md mt-2 w-48 z-10">
+                        <x-nav-link :href="route('themes.index')" :active="request()->routeIs('themes.index')" class="block flex justify-center py-2 text-gray-800 dark:text-gray-300 hover:bg-indigo-500 dark:hover:bg-indigo-400 hover:text-white w-full">
+                            {{ __('Themes') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('videos.index')" :active="request()->routeIs('videos.index')" class="block flex justify-center py-2 text-gray-800 dark:text-gray-300 hover:bg-indigo-500 dark:hover:bg-indigo-400 hover:text-white w-full">
+                            {{ __('Videos') }}
+                        </x-nav-link>
+                    </div>
+
+                    <x-nav-link :href="route('project.export')" :active="request()->routeIs('project.export')" id="exportButton" class="hover:text-indigo-500 dark:hover:text-indigo-400 mx-2">
+                        {{ __('Export') }}
+                    </x-nav-link>
+    
                     </div>
                 </div>
             </div>
