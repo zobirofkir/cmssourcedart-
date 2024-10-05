@@ -25,6 +25,9 @@
     <script src="./application/assets/js/accueil.js"></script>
 
     <script>
+        // Custom path variable (you can set this dynamically based on your application context)
+        const customPath = './application/assets/items/'; // Set your custom path here
+
         // Function to check if an image exists
         function imageExists(imgPath) {
             return new Promise((resolve) => {
@@ -42,13 +45,13 @@
             const maxImages = 100; // Define a reasonable upper limit to avoid an infinite loop
 
             for (let i = 1; i <= maxImages; i++) {
-                const imgPath = `./application/assets/items/${i}.png`;
+                const imgPath = `${customPath}${i}.png`; // Use the custom path
                 const exists = await imageExists(imgPath);
 
                 if (exists) {
                     const listItem = document.createElement("li");
                     listItem.innerHTML = `
-                        <a href="#" class="fixed-button" style="margin-top: 5px;">
+                        <a href="${imgPath}" class="fixed-button" style="margin-top: 5px;">
                             <img src="${imgPath}" class="btnPoster">
                         </a>
                     `;

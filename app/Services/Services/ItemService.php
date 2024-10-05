@@ -38,33 +38,32 @@ class ItemService implements ItemConstruct
      *
      * @param ItemRequest $request
      * @return void
-        */
+    */
     public function store(ItemRequest $request)
     {
-        // Validate the incoming request
         $request->validate([
-            'name' => 'required|integer', // Ensure the item name is a string
-            'image' => 'required|image', // Ensure the image is required and is a valid image
+            'name' => 'required|integer',
+            'image' => 'required|image',
+            'custom_path' => 'nullable|string',
         ]);
-
-        // Get the item name and the uploaded image
-        $itemName = $request->input('name'); // Get the item name from the request
-        $image = $request->file('image'); // Get the uploaded image
-
-        // Define the path to store the image
+    
+        $itemNumber = $request->input('name'); // Use the selected name number as the identifier
+        $itemPath = $request->input('custom_path');
+        $image = $request->file('image');
+    
         $destinationPath = public_path('project/application/assets/items');
-
-        // Check if the directory exists; create if it doesn't
+    
         if (!is_dir($destinationPath)) {
-            mkdir($destinationPath, 0755, true); // Create the directory if it doesn't exist
+            mkdir($destinationPath, 0755, true);
         }
-
-        // Move the uploaded file to the destination path with the item name as the file name
-        $image->move($destinationPath, $itemName . '.' . $image->getClientOriginalExtension());
-
+    
+        // Construct the filename using the selected name number and the image extension
+        $fileName = $itemNumber . ($itemPath ? '/' . $itemPath : '') . '.' . $image->getClientOriginalExtension();
+        $image->move($destinationPath, $fileName);
+    
         return redirect()->route('items.index')->withSuccess('Item added successfully.');
     }
-    
+
     /**
      * Show the form for editing the specified resource.
      *
