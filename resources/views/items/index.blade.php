@@ -16,8 +16,12 @@
                 </div>
             
                 <div class="mb-4">
-                    <label for="custom_path" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Custom Image Path (Optional)</label>
-                    <input type="text" name="custom_path" id="custom_path" placeholder="e.g., custom/path/to/store/image" class="mt-1 p-2 border border-gray-300 rounded-lg w-full text-black">
+                    <label for="category" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Select Category</label>
+                    <select name="category" id="category" class="mt-1 p-2 border border-gray-300 rounded-lg w-full text-black">
+                        <option value="e-poster">e-poster</option>
+                        <option value="reddifusion">reddifusion</option>
+                        <option value="programme">programme</option>
+                    </select>
                 </div>
                             
                 <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
