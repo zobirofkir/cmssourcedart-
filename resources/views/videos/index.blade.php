@@ -24,10 +24,31 @@
                     <input type="number" name="theme" id="theme" class="mt-1 p-2 border border-gray-300 rounded-lg w-full" required>
                 </div>
 
-                <!-- Video Upload -->
+                <!-- Video Source Choice -->
                 <div class="mb-4">
-                    <label for="video" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Upload Video</label>
-                    <input type="file" name="video" id="video" class="mt-1 p-2 border border-gray-300 rounded-lg w-full" required>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Video Source</label>
+                    <div class="mt-2 flex space-x-4">
+                        <label class="flex items-center">
+                            <input type="radio" name="video_source" value="upload" class="form-radio" onclick="toggleVideoSource('upload')" checked>
+                            <span class="ml-2 text-black dark:text-white">Upload Video</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="video_source" value="youtube" class="form-radio" onclick="toggleVideoSource('youtube')">
+                            <span class="ml-2 text-black dark:text-white">YouTube URL</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Video Upload -->
+                <div id="uploadVideoSection" class="mb-4">
+                    <label for="video" class="block text-sm font-medium text-black dark:text-white">Upload Video</label>
+                    <input type="file" name="video" id="video" class="mt-1 p-2 border border-white text-black dark:text-white rounded-lg w-full">
+                </div>
+
+                <!-- YouTube URL Input -->
+                <div id="youtubeUrlSection" class="mb-4 hidden">
+                    <label for="youtube_url" class="block text-sm font-medium text-black dark:text-white">YouTube URL</label>
+                    <input type="text" name="youtube_url" id="youtube_url" class="mt-1 p-2 border border-white rounded-lg w-full">
                 </div>
 
                 <!-- Submit Button -->
@@ -64,4 +85,16 @@
         </div>
 
     </div>
+
+    <script>
+        function toggleVideoSource(source) {
+            if (source === 'upload') {
+                document.getElementById('uploadVideoSection').classList.remove('hidden');
+                document.getElementById('youtubeUrlSection').classList.add('hidden');
+            } else if (source === 'youtube') {
+                document.getElementById('uploadVideoSection').classList.add('hidden');
+                document.getElementById('youtubeUrlSection').classList.remove('hidden');
+            }
+        }
+    </script>
 </x-app-layout>

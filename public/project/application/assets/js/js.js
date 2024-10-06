@@ -143,7 +143,7 @@ function réniGlightbox(e){
       setTimeout(()=>{
         $('.preloader1').hide('slow', function(){ $('.preloader1').remove(); });
         
-        $("#contentvedio").html('<video controls autoplay events currentTime volume  width="100%" height="100%"><source src="'+e+'" type="video/mp4"></video> ');
+        $("#contentvedio").html('<video controls autoplay events currentTime volume  width="100%" height="100%"><source src="'+e+'" "></video> ');
 
           
         },1000) 

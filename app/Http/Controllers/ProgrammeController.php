@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProgrammeRequest;
 use App\Services\Facades\ProgrammeFacade;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,7 @@ class ProgrammeController extends Controller
      * @param Request $request
      * @return void
      */
-    public function store(Request $request)
+    public function store(ProgrammeRequest $request)
     {
         return ProgrammeFacade::store($request);
     }
@@ -47,7 +48,7 @@ class ProgrammeController extends Controller
      * @param [type] $pdfName
      * @return void
      */
-    public function update(Request $request, $pdfName)
+    public function update(ProgrammeRequest $request, $pdfName)
     {
         return ProgrammeFacade::update($request, $pdfName);
     }

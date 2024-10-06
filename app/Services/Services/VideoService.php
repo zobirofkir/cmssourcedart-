@@ -2,6 +2,7 @@
 
 namespace App\Services\Services;
 
+use App\Http\Requests\VideoRequest;
 use App\Services\Construct\VideoConstruct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -36,31 +37,31 @@ class VideoService implements VideoConstruct
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(VideoRequest $request)
     {
-        // Validate the incoming request
-        $request->validate([
-            'day' => 'required|string',
-            'theme' => 'required|string', // Ensure the theme is a string
-            'video' => 'required|file|mimes:mp4,mov,avi,wmv', // Adjust validation for video
-        ]);
+        $request->validated();
     
-        // Get the day, theme, and video input
         $day = $request->input('day');
         $theme = $request->input('theme');
-        $video = $request->file('video');
-    
-        // Define the path to store the video
+        $videoSource = $request->input('video_source');
         $path = public_path("project/application/assets/videos/$day");
     
-        // Check if the directory exists; create if it doesn't
-        if (!File::exists($path)) {
-            File::makeDirectory($path, 0755, true);
+        if ($videoSource === 'upload') {
+            $video = $request->file('video');
+    
+            if (!File::exists($path)) {
+                File::makeDirectory($path, 0755, true);
+            }
+            $video->move($path, $theme . '.' . $video->getClientOriginalExtension());
+        } elseif ($videoSource === 'youtube') {
+
+            $youtubeUrl = $request->input('youtube_url');    
+            $filePath = "$path/{$theme}.txt";
+            if (!File::exists($path)) {
+                File::makeDirectory($path, 0755, true);
+            }
+            File::put($filePath, $youtubeUrl);
         }
-    
-        // Move the uploaded video to the defined path with the theme name as the file name
-        $video->move($path, $theme . '.' . $video->getClientOriginalExtension());
-    
         return redirect()->route('videos.index')->withSuccess('Video added successfully.');
     }
     
@@ -91,14 +92,12 @@ class VideoService implements VideoConstruct
      * @param string $videoName
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $day, $videoName)
+    public function update(VideoRequest $request, $day, $videoName)
     {
         $videoPath = public_path("project/application/assets/videos/$day/$videoName");
     
         if (File::exists($videoPath)) {
-            $request->validate([
-                'video' => 'nullable|file|mimes:mp4|max:20480', // Allow null to keep the existing video
-            ]);
+            $request->validated();
     
             if ($request->hasFile('video')) {
                 $video = $request->file('video');

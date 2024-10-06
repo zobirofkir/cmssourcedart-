@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\VideoRequest;
 use App\Services\Facades\VideoFacade;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class VideoController extends Controller
         return VideoFacade::index();
     }
     
-    public function store(Request $request)
+    public function store(VideoRequest $request)
     {
         return VideoFacade::store($request);
     }
@@ -22,7 +23,7 @@ class VideoController extends Controller
         return VideoFacade::edit($day, $videoName);
     }
     
-    public function update(Request $request, $day, $videoName)
+    public function update(VideoRequest $request, $day, $videoName)
     {
         return VideoFacade::update($request, $day, $videoName);
     }
@@ -32,7 +33,7 @@ class VideoController extends Controller
         return VideoFacade::destroy($day, $videoName);
     }
     
-    public function createDay(Request $request)
+    public function createDay(VideoRequest $request)
     {
         return VideoFacade::createDay($request);
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UploadRequest;
 use App\Services\Facades\UploadFacade;
 use Illuminate\Http\Request;
 
@@ -33,7 +34,7 @@ class UploadController extends Controller
      * @param Request $request
      * @return void
      */
-    public function store(Request $request)
+    public function store(UploadRequest $request)
     {
         return UploadFacade::store($request);
     }

@@ -2,6 +2,7 @@
 
 namespace App\Services\Construct;
 
+use App\Http\Requests\UploadRequest;
 use Illuminate\Http\Request;
 
 interface UploadConstruct
@@ -26,7 +27,7 @@ interface UploadConstruct
      * @param Request $request
      * @return void
      */
-    public function store(Request $request);
+    public function store(UploadRequest $request);
 
     /**
      * Show the form for editing the specified resource.

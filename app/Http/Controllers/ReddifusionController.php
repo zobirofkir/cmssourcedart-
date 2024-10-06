@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ReddifusionRequest;
 use App\Services\Facades\ReddifusionFacade;
 use Illuminate\Http\Request;
 
@@ -23,7 +24,7 @@ class ReddifusionController extends Controller
      * @param Request $request
      * @return void
      */
-    public function store(Request $request)
+    public function store(ReddifusionRequest $request)
     {
         return ReddifusionFacade::store($request);
     }
@@ -48,7 +49,7 @@ class ReddifusionController extends Controller
      * @param [type] $theme
      * @return void
      */
-    public function update(Request $request, $day, $theme)
+    public function update(ReddifusionRequest $request, $day, $theme)
     {
         return ReddifusionFacade::update($request, $day, $theme);
     }

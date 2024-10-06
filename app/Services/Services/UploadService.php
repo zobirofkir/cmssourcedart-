@@ -2,6 +2,7 @@
 
 namespace App\Services\Services;
 
+use App\Http\Requests\UploadRequest;
 use App\Services\Construct\UploadConstruct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -45,9 +46,9 @@ class UploadService implements UploadConstruct
      * @param Request $request
      * @return void
      */
-    public function store(Request $request)
+    public function store(UploadRequest $request)
     {
-        $request->validate(['file' => 'required|file' ]);
+        $request->validated();
 
         $file = $request->file('file');
         $filename = $file->getClientOriginalName();

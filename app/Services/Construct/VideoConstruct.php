@@ -2,6 +2,7 @@
 
 namespace App\Services\Construct;
 
+use App\Http\Requests\VideoRequest;
 use Illuminate\Http\Request;
 
 interface VideoConstruct
@@ -19,7 +20,7 @@ interface VideoConstruct
      * @param Request $request
      * @return void
      */
-    public function store(Request $request);
+    public function store(VideoRequest $request);
 
     /**
      * Show the form for editing the specified video.
@@ -36,7 +37,7 @@ interface VideoConstruct
      * @param string $videoName
      * @return void
      */
-    public function update(Request $request, $day, $videoName);
+    public function update(VideoRequest $request, $day, $videoName);
 
     /**
      * Remove the specified video from storage.

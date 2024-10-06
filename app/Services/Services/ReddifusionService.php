@@ -1,6 +1,7 @@
 <?php
 namespace App\Services\Services;
 
+use App\Http\Requests\ReddifusionRequest;
 use App\Services\Construct\ReddifusionConstruct;
 
 use Illuminate\Http\Request;
@@ -37,13 +38,9 @@ class ReddifusionService implements ReddifusionConstruct
      * @param Request $request
      * @return void
      */
-    public function store(Request $request)
+    public function store(ReddifusionRequest $request)
     {
-        $request->validate([
-            'day' => 'required|string',
-            'theme' => 'required|string',
-            'image' => 'required|image',
-        ]);
+        $request->validated();
 
         $day = $request->input('day');
         $theme = $request->input('theme');
@@ -87,7 +84,7 @@ class ReddifusionService implements ReddifusionConstruct
      * @param [type] $theme
      * @return void
      */
-    public function update(Request $request, $day, $theme)
+    public function update(ReddifusionRequest $request, $day, $theme)
     {
         $themePath = public_path("project/application/assets/thems/$day/$theme");
 

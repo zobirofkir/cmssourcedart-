@@ -2,6 +2,7 @@
 
 namespace App\Services\Construct;
 
+use App\Http\Requests\ReddifusionRequest;
 use Illuminate\Http\Request;
 
 interface ReddifusionConstruct 
@@ -19,7 +20,7 @@ interface ReddifusionConstruct
      * @param Request $request
      * @return void
      */
-    public function store(Request $request);
+    public function store(ReddifusionRequest $request);
     
     /**
      * Show the form for editing the specified resource.
@@ -38,7 +39,7 @@ interface ReddifusionConstruct
      * @param [type] $theme
      * @return void
      */
-    public function update(Request $request, $day, $theme);
+    public function update(ReddifusionRequest $request, $day, $theme);
 
     /**
      * Remove the specified resource from storage.

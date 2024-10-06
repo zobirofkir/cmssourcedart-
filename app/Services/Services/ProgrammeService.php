@@ -2,6 +2,7 @@
 
 namespace App\Services\Services;
 
+use App\Http\Requests\ProgrammeRequest;
 use App\Services\Construct\ProgrammeConstruct;
 
 use Illuminate\Http\Request;
@@ -45,11 +46,9 @@ class ProgrammeService implements ProgrammeConstruct
      * @param Request $request
      * @return void
      */
-    public function store(Request $request)
+    public function store(ProgrammeRequest $request)
     {
-        $request->validate([
-            'pdf' => 'required|file|mimes:pdf|max:10240',
-        ]);
+        $request->validated();
 
         if ($request->hasFile('pdf')) {
             $file = $request->file('pdf');
@@ -95,7 +94,7 @@ class ProgrammeService implements ProgrammeConstruct
      * @param [type] $pdfName
      * @return void
      */
-    public function update(Request $request, $pdfName)
+    public function update(ProgrammeRequest $request, $pdfName)
     {
         $pdfPath = public_path("project/application/assets/img/app/programme/$pdfName");
 
