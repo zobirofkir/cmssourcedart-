@@ -23,20 +23,20 @@
             <div class="mb-6">
                 <h3 class="text-lg font-medium text-gray-700 mb-2">Base List Styles</h3>
         
-                @foreach(['top', 'right', 'bottom', 'left'] as $property)
+                @foreach(['top', 'right','left'] as $property)
                     <label class="block text-gray-700 text-sm font-bold mb-2">{{ ucfirst(str_replace('_', ' ', $property)) }}:</label>
                     <input type="text" name="listliks_{{ $property }}" value="{{ old('listliks_' . $property, $stylesArray[$property] ?? '') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 @endforeach
                 
-                <h3 class="text-lg font-medium text-gray-700 mb-2">List Items Styles</h3>
+                {{-- <h3 class="text-lg font-medium text-gray-700 mb-2">List Items Styles</h3>
                 
                 <label class="block text-gray-700 text-sm font-bold mb-2">Margin Bottom:</label>
                 <input type="text" name="listliks_li_margin_bottom" value="{{ old('listliks_li_margin_bottom', $listItemsStylesArray['margin-bottom'] ?? '') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         
                 <label class="block text-gray-700 text-sm font-bold mb-2">Width:</label>
-                <input type="text" name="listliks_li_width" value="{{ old('listliks_li_width', $listItemsStylesArray['width'] ?? '') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="text" name="listliks_li_width" value="{{ old('listliks_li_width', $listItemsStylesArray['width'] ?? '') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> --}}
         
-                <h3 class="text-lg font-medium text-gray-700 mb-2">Button Poster Styles</h3>
+                {{-- <h3 class="text-lg font-medium text-gray-700 mb-2">Button Poster Styles</h3>
         
                 <label class="block text-gray-700 text-sm font-bold mb-2">Width:</label>
                 <input type="text" name="btnPoster_width" value="{{ old('btnPoster_width', $btnPosterStylesArray['width'] ?? '') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
@@ -48,21 +48,21 @@
                 <input type="text" name="btnPoster_object_fit" value="{{ old('btnPoster_object_fit', $btnPosterStylesArray['object-fit'] ?? '') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         
                 <label class="block text-gray-700 text-sm font-bold mb-2">Justify Content:</label>
-                <input type="text" name="btnPoster_justify_content" value="{{ old('btnPoster_justify_content', $btnPosterStylesArray['justify-content'] ?? '') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="text" name="btnPoster_justify_content" value="{{ old('btnPoster_justify_content', $btnPosterStylesArray['justify-content'] ?? '') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> --}}
         
                 <h3 class="text-lg font-medium text-gray-700 mb-2">Responsive Styles</h3>
         
                 <label class="block text-gray-700 text-sm font-bold mb-2">Responsive Top:</label>
-                <input type="text" name="responsive_top" value="{{ old('responsive_top') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="text" name="responsive_top" value="{{ old('responsive_top') ?? '70%' }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         
                 <label class="block text-gray-700 text-sm font-bold mb-2">Responsive Right:</label>
-                <input type="text" name="responsive_right" value="{{ old('responsive_right') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="text" name="responsive_right" value="{{ old('responsive_right') ?? '0px' }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         
-                <label class="block text-gray-700 text-sm font-bold mb-2">Responsive Bottom:</label>
-                <input type="text" name="responsive_bottom" value="{{ old('responsive_bottom') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                {{-- <label class="block text-gray-700 text-sm font-bold mb-2">Responsive Bottom:</label>
+                <input type="text" name="responsive_bottom" value="{{ old('responsive_bottom') ?? '0px' }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> --}}
         
                 <label class="block text-gray-700 text-sm font-bold mb-2">Responsive Left:</label>
-                <input type="text" name="responsive_left" value="{{ old('responsive_left') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="text" name="responsive_left" value="{{ old('responsive_left') ?? '170px' }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             </div>
         
             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">

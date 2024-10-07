@@ -145,7 +145,7 @@ class FileItemController extends Controller
         if ($request->has('responsive_left')) {
             $responsiveStyles .= "    left: {$request->input('responsive_left')};\n";
         } else {
-            $responsiveStyles .= "    left: 37%;\n"; // Default value if not provided
+            $responsiveStyles .= "    left: 170px;\n"; // Default value if not provided
         }
 
         $responsiveStyles .= "    transform: translate(-50%, -50%);\n";
