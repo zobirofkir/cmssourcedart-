@@ -19,20 +19,26 @@ class ItemService implements ItemConstruct
      */
     public function index()
     {
-        $basePath = public_path('project/application/assets/items');
+        $itemsDirectory = public_path('project/application/assets/items');
+        $cssFile = public_path('project/application/assets/css/index1000.css');
         
-        $files = File::files($basePath);
         $items = [];
-    
-        foreach ($files as $file) {
-            $items[basename($file)] = $file->getPathname();
+        
+        if (File::exists($itemsDirectory)) {
+            $files = File::files($itemsDirectory);
+            
+            foreach ($files as $file) {
+                $items[basename($file)] = $file->getPathname();
+            }
         }
-    
-        $existingDays = []; 
-    
+        
+        if (File::exists($cssFile)) {
+            $items[basename($cssFile)] = $cssFile;
+        }    
+        $existingDays = [];        
         return view('items.index', compact('items', 'existingDays'));
     }
-    
+        
     /**
      * Show the form for creating a new resource.
      *

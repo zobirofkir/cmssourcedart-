@@ -13,6 +13,7 @@ use App\Http\Controllers\ProgrammeController;
 use App\Http\Controllers\ReddifusionController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\VideoController;
+use Faker\Core\File;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -87,6 +88,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/projects/{name}', [UploadController::class, 'destroy'])->name('projects.destroy');
     Route::put('/projects/{name}', [UploadController::class, 'updatePath'])->name('projects.updatePath');
 
+    Route::resource('items/file', FileItemController::class)->names([
+        'update' => 'file.update'
+    ]);
+    
     /**
      * Export Controller routes
      */
