@@ -140,7 +140,7 @@
     <script>
         const themes = []; // Initialize themes array
         const maxThemes = 100; // Define the number of themes
-
+    
         for (let i = 1; i <= maxThemes; i++) {
             themes.push({
                 id: i, 
@@ -149,60 +149,46 @@
                 txt: `${i}.txt` // Dynamic text file name
             });
         }
-
+    
         const themesContainer = document.getElementById("themesContainer");
-
+    
         themes.forEach((theme) => {
             const listItem = document.createElement("li");
             listItem.setAttribute("data-id", theme.id);
             const videoPath = `./videos/3/${theme.video}`;
-            const txtPath = `./videos/3/${theme.txt}`;
-
-            // Create an asynchronous function to check if the video exists
-            checkFileExists(videoPath).then(videoExists => {
-                listItem.innerHTML = `
-                    <a onclick='vedioSource(${videoExists ? `"${videoPath}"` : `"${txtPath}"`}, this)'>
-                        <img src="./thems/3 jour/${theme.img}" width="100%" alt="">
-                        <span class="btnplay">
-                            <img src="./img/requires/Play.png" width="10%" alt="">
-                        </span>
-                    </a>
-                `;
-                themesContainer.appendChild(listItem);
-            });
+            const txtPath = `./videos/3/${theme.txt}`; 
+    
+            // Create the list item with a direct link to the video
+            listItem.innerHTML = `
+                <a onclick='vedioSource("${videoPath}", "${txtPath}", this)'>
+                    <img src="./thems/3 jour/${theme.img}" width="100%" alt="">
+                    <span class="btnplay">
+                        <img src="./img/requires/Play.png" width="10%" alt="">
+                    </span>
+                </a>
+            `;
+            themesContainer.appendChild(listItem);
         });
-
-        // Function to check if a file exists
-        function checkFileExists(filePath) {
-            return new Promise((resolve) => {
-                $.ajax({
-                    url: filePath,
-                    type: 'HEAD',
-                    success: function() {
-                        resolve(true);
-                    },
-                    error: function() {
-                        resolve(false);
-                    }
-                });
-            });
-        }
-
+    
         // Function to handle video source assignment
-        function vedioSource(source, element) {
+        function vedioSource(videoSource, txtSource, element) {
             const contentVideo = document.getElementById('contentvedio'); // Target where the video will be displayed
-
-            // If the source is a video file, handle it differently
-            if (source.endsWith('.mp4')) {
+    
+            // Create a video element to check if it loads
+            const videoElement = document.createElement('video');
+            videoElement.src = videoSource;
+            videoElement.oncanplaythrough = () => {
                 contentVideo.innerHTML = `
                     <video controls autoplay width="100%" height="100%">
-                        <source src="${source}" type="video/mp4">
+                        <source src="${videoSource}" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 `;
-            } else {
-                // Fetch the YouTube URL from the text file
-                fetch(source)
+            };
+    
+            videoElement.onerror = () => {
+                // If the video fails to load, fetch the YouTube URL from the text file
+                fetch(txtSource)
                     .then(response => {
                         if (!response.ok) {
                             throw new Error('Network response was not ok');
@@ -212,7 +198,7 @@
                     .then(youtubeUrl => {
                         // Trim the URL to ensure no extra spaces
                         youtubeUrl = youtubeUrl.trim();
-
+    
                         // Embed the YouTube video using an iframe
                         contentVideo.innerHTML = `
                             <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${youtubeUrl}" frameborder="0" allowfullscreen></iframe>
@@ -222,9 +208,12 @@
                         console.error('Error fetching YouTube URL:', error);
                         contentVideo.innerHTML = '<p>Error loading video.</p>';
                     });
-            }
+            };
+    
+            // Trigger the load to check if it can play
+            videoElement.load();
         }
     </script>
-    
+        
 </body>
 </html>
