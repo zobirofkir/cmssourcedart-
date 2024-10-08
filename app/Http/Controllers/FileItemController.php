@@ -148,23 +148,7 @@ class FileItemController extends Controller
             $responsiveStyles .= "    left: 170px;\n"; // Default value if not provided
         }
 
-        $responsiveStyles .= "    transform: translate(-50%, -50%);\n";
-        $responsiveStyles .= "    flex-direction: column;\n";
-        $responsiveStyles .= "    align-items: center;\n";
-        $responsiveStyles .= "  }\n";
-        $responsiveStyles .= "  .listliks li {\n";
-        $responsiveStyles .= "    width: 100%; /* Smaller button size */\n";
-        $responsiveStyles .= "    margin-bottom: 10px; /* Space between buttons */\n";
-        $responsiveStyles .= "  }\n";
-        $responsiveStyles .= "  .listliks li a {\n";
-        $responsiveStyles .= "    width: 100%;\n";
-        $responsiveStyles .= "    text-align: center;\n";
-        $responsiveStyles .= "  }\n";
-        $responsiveStyles .= "  .listliks li a img {\n";
-        $responsiveStyles .= "    height: 80px; /* Smaller button size */\n";
-        $responsiveStyles .= "    width: auto;\n";
-        $responsiveStyles .= "  }\n";
-        $responsiveStyles .= "}\n";
+        $responsiveStyles .= "}}\n";
 
         // Save updated content to the CSS file
         $updatedContent = str_replace($this->getOriginalStyles($fileContent, '.listliks'), $newStyles, $fileContent);

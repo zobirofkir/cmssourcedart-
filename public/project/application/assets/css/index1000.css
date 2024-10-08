@@ -19,10 +19,13 @@ body {
     flex-direction: column;
     align-items: flex-end;
     z-index: 9999;
-    top: 25%;
-    right: 10px;
-    left: ;
+    top: 75%;
+    right: 70%;
+    left: 0;
 }
+
+
+
 
 
 .listliks li {
@@ -31,6 +34,9 @@ body {
     list-style: none;
     width: 50%;
 }
+
+
+
 
 
 .listliks li a {
@@ -99,29 +105,6 @@ body {
   }
 }
 
-@media (max-width: 480px) {
-  .listliks {
-    top: 70%;
-    right: 0px;
-    left: 170px;
-    transform: translate(-50%, -50%);
-    flex-direction: column;
-    align-items: center;
-  }
-  .listliks li {
-    width: 100%; /* Smaller button size */
-    margin-bottom: 10px; /* Space between buttons */
-  }
-  .listliks li a {
-    width: 100%;
-    text-align: center;
-  }
-  .listliks li a img {
-    height: 80px; /* Smaller button size */
-    width: auto;
-  }
-}
-
 
   .listliks li {
     width: 100%; /* Smaller button size */
@@ -137,7 +120,6 @@ body {
     height: 80px; /* Smaller button size */
     width: auto;
   }
-}
 
 /* Fixed button style */
 .fixed-button {
@@ -153,7 +135,7 @@ body {
 
 /* Base styles */
 .btnPoster {
-    width: 40%;
+    width: 400%;
     height: 100%;
     object-fit: cover;
     display: flex;
@@ -164,29 +146,3 @@ body {
   margin: auto;
 }
 
-
-/* Styles for small screens */
-@media (max-width: 480px) {
-  .listliks {
-    top: 70%;
-    right: 0px;
-    left: 170px;
-    transform: translate(-50%, -50%);
-    flex-direction: column;
-    align-items: center;
-  }
-  .listliks li {
-    width: 100%; /* Smaller button size */
-    margin-bottom: 10px; /* Space between buttons */
-  }
-  .listliks li a {
-    width: 100%;
-    text-align: center;
-  }
-  .listliks li a img {
-    height: 80px; /* Smaller button size */
-    width: auto;
-  }
-}
-
-}
