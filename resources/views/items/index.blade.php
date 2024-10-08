@@ -54,7 +54,7 @@
                                     {{ $itemName }}
                                 </a>
                             @endif
-                            @if ($itemName !== 'affiche 02.jpg' && $itemName !== 'affiche0.jpg')
+                            @if ($itemName !== 'affiche 02.jpg' && $itemName !== 'affiche0.jpg' && $itemName !== 'index1000.css')
                                 <form action="{{ route('items.destroy', ['itemName' => $itemName]) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this item?');">
                                     @csrf
                                     @method('DELETE')
