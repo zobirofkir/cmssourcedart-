@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Société Marocaine Neurochirurgie</title>
+    <title>Jour 2</title>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/css1.css" />
     <!-------------La chatgraphi------------------>
@@ -21,7 +21,6 @@
           
 
     </div>
-
 
     <div class="content">
         <div class="lefttop">
@@ -54,27 +53,25 @@
                         <a
                             href="vendredi.html"
                             class="text-decoration-none text-light"
-                        >Vendredi</a>
-                    </button>
-                    <button style="outline: none" class="btnjr3">
-                        <a
-                            href="samedi.html"
-                            class="btnjr4 text-decoration-none text-light"
-                        >samedi</a>
+                        >Jour 1</a>
                     </button>
                     <button style="outline: none" class="btnjr1">
                         <a
+                            href="samedi.html"
+                            class="btnjr4 text-decoration-none text-light"
+                        >Jour 2</a>
+                    </button>
+                    <button style="outline: none" class="btnjr3">
+                        <a
                             href="dimanche.html"
                             class="btnjr4 text-decoration-none text-light"
-                        >dimanche</a>
+                        >Jour 3</a>
                     </button>
                 </div>
                 <div id="contentjour" class="contentjour">
                     <div class="jr1 jr">
-                        <h1>Vendredi 5 juillet 2024</h1>
-                        <div class="txtnormal">
-                            <!-- Dynamic theme and video loading area -->
-                            <ul id="themesContainer"></ul>
+                        <h1>Jour 2</h1>
+                        <div class="txtnormal" id="themesContainer">
                         </div>
                     </div>
                 </div>
@@ -113,13 +110,13 @@
         themes.forEach((theme) => {
             const listItem = document.createElement("li");
             listItem.setAttribute("data-id", theme.id);
-            const videoPath = `./videos/3/${theme.video}`;
-            const txtPath = `./videos/3/${theme.txt}`; 
+            const videoPath = `./videos/2/${theme.video}`;
+            const txtPath = `./videos/2/${theme.txt}`; 
     
             // Create the list item with a direct link to the video
             listItem.innerHTML = `
                 <a onclick='vedioSource("${videoPath}", "${txtPath}", this)'>
-                    <img src="./thems/3 jour/${theme.img}" width="100%" alt="">
+                    <img src="./thems/2 jour/${theme.img}" width="100%" alt="">
                     <span class="btnplay">
                         <img src="./img/requires/Play.png" width="10%" alt="">
                     </span>
