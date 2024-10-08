@@ -28,27 +28,6 @@
                     <input type="text" name="listliks_{{ $property }}" value="{{ old('listliks_' . $property, $stylesArray[$property] ?? '') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 @endforeach
                 
-                {{-- <h3 class="text-lg font-medium text-gray-700 mb-2">List Items Styles</h3>
-                
-                <label class="block text-gray-700 text-sm font-bold mb-2">Margin Bottom:</label>
-                <input type="text" name="listliks_li_margin_bottom" value="{{ old('listliks_li_margin_bottom', $listItemsStylesArray['margin-bottom'] ?? '') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-        
-                <label class="block text-gray-700 text-sm font-bold mb-2">Width:</label>
-                <input type="text" name="listliks_li_width" value="{{ old('listliks_li_width', $listItemsStylesArray['width'] ?? '') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> --}}
-        
-                {{-- <h3 class="text-lg font-medium text-gray-700 mb-2">Button Poster Styles</h3>
-        
-                <label class="block text-gray-700 text-sm font-bold mb-2">Width:</label>
-                <input type="text" name="btnPoster_width" value="{{ old('btnPoster_width', $btnPosterStylesArray['width'] ?? '') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-        
-                <label class="block text-gray-700 text-sm font-bold mb-2">Height:</label>
-                <input type="text" name="btnPoster_height" value="{{ old('btnPoster_height', $btnPosterStylesArray['height'] ?? '') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-        
-                <label class="block text-gray-700 text-sm font-bold mb-2">Object Fit:</label>
-                <input type="text" name="btnPoster_object_fit" value="{{ old('btnPoster_object_fit', $btnPosterStylesArray['object-fit'] ?? '') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-        
-                <label class="block text-gray-700 text-sm font-bold mb-2">Justify Content:</label>
-                <input type="text" name="btnPoster_justify_content" value="{{ old('btnPoster_justify_content', $btnPosterStylesArray['justify-content'] ?? '') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> --}}
         
                 <h3 class="text-lg font-medium text-gray-700 mb-2">Responsive Styles</h3>
         
@@ -58,8 +37,6 @@
                 <label class="block text-gray-700 text-sm font-bold mb-2">Responsive Right:</label>
                 <input type="text" name="responsive_right" value="{{ old('responsive_right') ?? '0px' }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         
-                {{-- <label class="block text-gray-700 text-sm font-bold mb-2">Responsive Bottom:</label>
-                <input type="text" name="responsive_bottom" value="{{ old('responsive_bottom') ?? '0px' }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> --}}
         
                 <label class="block text-gray-700 text-sm font-bold mb-2">Responsive Left:</label>
                 <input type="text" name="responsive_left" value="{{ old('responsive_left') ?? '170px' }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
