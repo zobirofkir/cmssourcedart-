@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jour 1</title>
+    <title>Jour 3</title>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/css1.css" />
     <!-------------La chatgraphi------------------>
@@ -111,13 +111,13 @@
         themes.forEach((theme) => {
             const listItem = document.createElement("li");
             listItem.setAttribute("data-id", theme.id);
-            const videoPath = `./videos/1/${theme.video}`;
-            const txtPath = `./videos/1/${theme.txt}`;
+            const videoPath = `./videos/3/${theme.video}`;
+            const txtPath = `./videos/3/${theme.txt}`;
     
             // Create the list item with a direct link to the video
             listItem.innerHTML = `
                 <a onclick='vedioSource("${videoPath}", "${txtPath}", this)'>
-                    <img src="./thems/1  jour/${theme.img}" width="100%" alt="">
+                    <img src="./thems/3 jour/${theme.img}" width="100%" alt="">
                     <span class="btnplay">
                         <img src="./img/requires/Play.png" width="10%" alt="">
                     </span>

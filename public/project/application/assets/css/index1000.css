@@ -19,10 +19,27 @@ body {
     flex-direction: column;
     align-items: flex-end;
     z-index: 9999;
-    top: 75%;
-    right: 70%;
-    left: 0;
+    top: 40%;
+    right: 0;
+    left: 60%;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -34,6 +51,23 @@ body {
     list-style: none;
     width: 50%;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -146,3 +180,42 @@ body {
   margin: auto;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 480px) {
+  .listliks {
+    top: 90%;
+    right: 0px;
+    left: 170px;
+}}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}

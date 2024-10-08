@@ -62,7 +62,7 @@ class VideoService implements VideoConstruct
             }
             File::put($filePath, $youtubeUrl);
         }
-        return redirect()->route('videos.index')->withSuccess('Video added successfully.');
+        return redirect()->back()->withSuccess('Video added successfully.');
     }
     
     /**
@@ -109,7 +109,7 @@ class VideoService implements VideoConstruct
                 }
             }
     
-            return redirect()->route('videos.index')->withSuccess('Video updated successfully.');
+            return redirect()->back()->withSuccess('Video updated successfully.');
         }
     
         return redirect()->back()->withErrors('Unable to update video.');
@@ -128,10 +128,10 @@ class VideoService implements VideoConstruct
 
         if (File::exists($videoPath)) {
             File::delete($videoPath);
-            return redirect()->route('videos.index')->with('success', 'Video deleted successfully.');
+            return redirect()->back()->with('success', 'Video deleted successfully.');
         }
 
-        return redirect()->route('videos.index')->withErrors('Video not found.');
+        return redirect()->back()->withErrors('Video not found.');
     }
 
     /**

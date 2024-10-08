@@ -27,9 +27,21 @@ class ReddifusionService implements ReddifusionConstruct
             $themes[$dayName] = File::files($day);
         }
 
-        $existingDays = array_keys($themes);
+        $existingDaysThemes = array_keys($themes);
 
-        return view('themes.index', compact('themes', 'existingDays'));
+        $basePath = public_path('project/application/assets/videos');
+
+        $days = File::directories($basePath);
+        $videoFiles = [];
+
+        foreach ($days as $day) {
+            $dayName = basename($day);
+            $videoFiles[$dayName] = File::files($day);
+        }
+
+        $existingDays = array_keys($videoFiles);
+
+        return view('themes.index', compact('themes', 'existingDaysThemes', 'videoFiles', 'existingDays'));
     }
     
     /**
