@@ -168,6 +168,20 @@
             // Trigger the load to check if it can play
             videoElement.load();
         }
+
+        // Function to display default image
+        function displayDefaultImage() {
+            const contentVideo = document.getElementById('contentvedio');
+            contentVideo.innerHTML = '<img src="../../application/assets/items/affiche 02.jpg" width="100%" height="100%" alt="Default Image">';
+        }
+    
+        // Display default image on window load
+        window.onload = function () {
+            $('.btnjr1').addClass('btnactive');
+            $('.jr1').addClass('jouractive');
+            displayDefaultImage(); // Call the function to display the default image
+        };
+
     </script>
         
 </body>

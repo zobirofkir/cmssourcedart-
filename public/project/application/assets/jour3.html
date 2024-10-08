@@ -6,9 +6,13 @@
     <title>Jour 1</title>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/css1.css" />
+    <!-------------La chatgraphi------------------>
     <link rel="stylesheet" href="css/GlobaleColor.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    />
 </head>
 <body>
     <header><img src="./abdelfatah-header.jpg" id="header"  width="100%" alt=""></header>
@@ -21,30 +25,53 @@
 
     <div class="content">
         <div class="lefttop">
-            <i class="fas fa-volume-mute logo" style="display: none" onclick="logo()"></i>
+            <i
+                class="fas fa-volume-mute logo"
+                style="display: none"
+                onclick="logo()"
+            ></i>
             <div id="contentvedio">
+                <!-- Video element to display the selected video -->
                 <video id="videoPlayer" width="100%" controls>
-                    <source id="videoSource" src="">
+                    <source id="videoSource" src="" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
         </div>
         <div class="contentright">
             <div class="righttop">
-                <div class="btn-group btnjour" role="group" id="btnjour" aria-label="Basic example">
-                    <button type="button" class="btnjr1 btnjr text-decoration-none text-light">
-                        <a href="jour1.html" class="text-decoration-none text-light">Jour 1</a>
+                <!--Les jours --->
+                <div
+                    class="btn-group btnjour"
+                    role="group"
+                    id="btnjour"
+                    aria-label="Basic example"
+                >
+                    <button
+                        style="outline: none"
+                        class="btnj4 text-decoration-none text-light"
+                    >
+                        <a
+                            href="jour1.html"
+                            class="text-decoration-none text-light"
+                        >Jour 1</a>
                     </button>
-                    <button type="button" class="btnjr3">
-                        <a href="jour2.html" class="btnjr4 text-decoration-none text-light">Jour 2</a>
+                    <button style="outline: none" class="btnjr3">
+                        <a
+                            href="jour2.html"
+                            class="btnjr4 text-decoration-none text-light"
+                        >Jour 2</a>
                     </button>
-                    <button type="button" class="btnjr3">
-                        <a href="jour3.html" class="btnjr4 text-decoration-none text-light">Jour 3</a>
+                    <button style="outline: none" class="btnjr1">
+                        <a
+                            href="jour3.html"
+                            class="btnjr4 text-decoration-none text-light"
+                        >Jour 3</a>
                     </button>
                 </div>
                 <div id="contentjour" class="contentjour">
                     <div class="jr1 jr">
-                        <h1>Jour 1</h1>
+                        <h1>Jour 3</h1>
                         <div class="txtnormal" id="themesContainer">
                         </div>
                     </div>
@@ -55,22 +82,24 @@
 
     <script src="js/js.js"></script>
     <script src="js/rediffusion.js"></script>
+    <!-- lien de live -->
     <a hidden id="cmclive" class="glightbox"></a>
-    <script src="js/jqury.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/glightbox.min.js" id="glightbox"></script>
+    <script src="./js/jqury.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/glightbox.min.js" id="glightbox"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="../assets/js/poster.js"></script>
+    <script src="../assets//js/poster.js"></script>
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
         const themes = []; // Initialize themes array
         const maxThemes = 100; // Define the number of themes
     
         for (let i = 1; i <= maxThemes; i++) {
             themes.push({
-                id: i, 
+                id: i,
                 img: `${i}.png`, // Dynamic image name
                 video: `${i}.mp4`, // Dynamic video name
                 txt: `${i}.txt` // Dynamic text file name
@@ -83,7 +112,7 @@
             const listItem = document.createElement("li");
             listItem.setAttribute("data-id", theme.id);
             const videoPath = `./videos/1/${theme.video}`;
-            const txtPath = `./videos/1/${theme.txt}`; 
+            const txtPath = `./videos/1/${theme.txt}`;
     
             // Create the list item with a direct link to the video
             listItem.innerHTML = `
@@ -101,11 +130,20 @@
         function vedioSource(videoSource, txtSource, element) {
             const contentVideo = document.getElementById('contentvedio'); // Target where the video will be displayed
     
+            // Create a placeholder image element
+            contentVideo.innerHTML = `
+                <img src="./img/default-placeholder.png" alt="Loading..." width="100%" height="100%" id="placeholderImage">
+            `;
+    
             // Create a video element to check if it loads
             const videoElement = document.createElement('video');
             videoElement.src = videoSource;
+            
             videoElement.oncanplaythrough = () => {
-                contentVideo.innerHTML = `
+                // Remove the placeholder image when the video is ready to play
+                document.getElementById('placeholderImage').style.display = 'none';
+    
+                contentVideo.innerHTML += `
                     <video controls autoplay width="100%" height="100%">
                         <source src="${videoSource}" type="video/mp4">
                         Your browser does not support the video tag.
@@ -140,7 +178,20 @@
             // Trigger the load to check if it can play
             videoElement.load();
         }
-    </script>
+
+        // Function to display default image
+        function displayDefaultImage() {
+            const contentVideo = document.getElementById('contentvedio');
+            contentVideo.innerHTML = '<img src="../../application/assets/items/affiche 02.jpg" width="100%" height="100%" alt="Default Image">';
+        }
     
+        // Display default image on window load
+        window.onload = function () {
+            $('.btnjr1').addClass('btnactive');
+            $('.jr1').addClass('jouractive');
+            displayDefaultImage(); // Call the function to display the default image
+        };
+    </script>
+            
 </body>
 </html>
