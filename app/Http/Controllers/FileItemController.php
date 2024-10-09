@@ -120,6 +120,8 @@ class FileItemController extends Controller
         // Update the responsive styles if provided
         $responsiveStyles = "@media (max-width: 480px) {\n";
         $responsiveStyles .= "  .listliks {\n";
+        
+        cookie('responsive_top', $request->input('responsive_top'), 50);
 
         // Update the top value if provided in the request
         if ($request->has('responsive_top')) {

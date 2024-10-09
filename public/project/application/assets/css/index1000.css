@@ -19,10 +19,22 @@ body {
     flex-direction: column;
     align-items: flex-end;
     z-index: 9999;
-    top: 60%;
-    right: 1400px;
+    top: 70%;
+    right: 1000px;
     left: 60px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -211,14 +223,38 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 .listliks li a {
   display: block;
 }
 
 .listliks li a img {
-    height: 130px;
+    height: 150px;
     width: auto;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -386,10 +422,22 @@ body {
 
 @media (max-width: 480px) {
   .listliks {
-    top: 50%;
+    top: 70%;
     right: 0px;
     left: 170px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
