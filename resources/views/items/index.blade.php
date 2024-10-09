@@ -40,13 +40,13 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             @foreach ($items as $itemName => $itemPath)
                 <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4 text-center font-bold">{{ $itemName }}</h2>
+                    <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4 text-center font-bold">Buttons Style</h2>
                     <ul class="space-y-2">
                         <li class="flex items-center justify-between text-gray-700 dark:text-gray-300">
                             @if ($itemName === 'index1000.css')
                                 <a href="{{ url('/items/file') }}" 
                                 class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-500 transition-colors duration-200">
-                                    {{ $itemName }}
+                                    Buttons Style
                                 </a>
                             @else
                                 <a href="{{ route('items.edit', ['itemName' => $itemName]) }}"

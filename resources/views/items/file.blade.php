@@ -10,7 +10,7 @@
             </div>
         @endif
 
-        <h2 class="text-2xl font-semibold text-gray-800 mb-6">Edit CSS File Properties</h2>
+        <h2 class="text-2xl font-semibold text-gray-800 mb-6">{{auth()->user()->name}} - {{__('File Settings')}}</h2>
 
         <form action="{{ route('file.update', ['file' => 1]) }}" method="POST">
             @csrf
