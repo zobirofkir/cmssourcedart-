@@ -19,10 +19,26 @@ body {
     flex-direction: column;
     align-items: flex-end;
     z-index: 9999;
-    top: 70%;
+    top: 60%;
     right: 1400px;
     left: 60px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -179,14 +195,42 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .listliks li a {
   display: block;
 }
 
 .listliks li a img {
-  height: 150px;
-  width: auto;
+    height: 130px;
+    width: auto;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Responsive styles */
 @media (max-width: 1024px) {
@@ -336,6 +380,10 @@ body {
 
 
 
+
+
+
+
 @media (max-width: 480px) {
   .listliks {
     top: 50%;
@@ -352,9 +400,27 @@ body {
 
 
 
-  
-  .listliks li a img {
-    height: 80px;
-    width: auto;
-  }
+
+.listliks li a img {
+  height: 80px;
+  width: auto;
 }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

@@ -10,20 +10,23 @@ class FileItemController extends Controller
     public function index()
     {
         $filePath = 'project/application/assets/css/index1000.css';
-
+    
         // Ensure the file exists before trying to read it
         if (!file_exists($filePath)) {
             return redirect()->back()->withErrors('CSS file not found.');
         }
-
+    
         $fileContent = file_get_contents($filePath);
-
+    
         // Parse the existing CSS styles
         $stylesArray = $this->parseCssStyles($fileContent, '.listliks');
         $listItemsStylesArray = $this->parseCssStyles($fileContent, '.listliks li');
-        $btnPosterStylesArray = $this->parseCssStyles($fileContent, '.btnPoster');
-
-        return view('items.file', compact('fileContent', 'filePath', 'stylesArray', 'listItemsStylesArray', 'btnPosterStylesArray'));
+        $btnPosterStylesArray = $this->parseCssStyles($fileContent, '.listliks li a img');
+    
+        // Extract the specific style you need for the input
+        $btnPosterHeight = isset($btnPosterStylesArray['height']) ? $btnPosterStylesArray['height'] : '';
+    
+        return view('items.file', compact('fileContent', 'filePath', 'stylesArray', 'listItemsStylesArray', 'btnPosterStylesArray', 'btnPosterHeight'));
     }
 
     public function update(Request $request)
@@ -37,10 +40,7 @@ class FileItemController extends Controller
             'listliks_left' => 'nullable|string',
             'listliks_li_margin_bottom' => 'nullable|string',
             'listliks_li_width' => 'nullable|string',
-            'btnPoster_width' => 'nullable|string',
             'btnPoster_height' => 'nullable|string',
-            'btnPoster_object_fit' => 'nullable|string',
-            'btnPoster_justify_content' => 'nullable|string',
             'responsive_top' => 'nullable|string',
             'responsive_right' => 'nullable|string',
             'responsive_bottom' => 'nullable|string',
@@ -61,7 +61,7 @@ class FileItemController extends Controller
         // Parse existing CSS properties for .listliks, .listliks li, and .btnPoster
         $stylesArray = $this->parseCssStyles($fileContent, '.listliks');
         $listItemsStylesArray = $this->parseCssStyles($fileContent, '.listliks li');
-        $btnPosterStylesArray = $this->parseCssStyles($fileContent, '.btnPoster');
+        $btnPosterStylesArray = $this->parseCssStyles($fileContent, '.listliks li a img');
 
         // Update properties from request for base styles (.listliks)
         $propertiesToUpdate = [
@@ -87,10 +87,7 @@ class FileItemController extends Controller
 
         // Update properties from request for .btnPoster styles
         $btnPosterProperties = [
-            'width' => 'btnPoster_width',
             'height' => 'btnPoster_height',
-            'object-fit' => 'btnPoster_object_fit',
-            'justify-content' => 'btnPoster_justify_content',
         ];
 
         foreach ($btnPosterProperties as $cssProperty => $inputName) {
@@ -114,7 +111,7 @@ class FileItemController extends Controller
         $newListItemsStyles .= "}\n";
 
         // Build the new CSS content for .btnPoster styles
-        $newBtnPosterStyles = ".btnPoster {\n";
+        $newBtnPosterStyles = ".listliks li a img {\n";
         foreach ($btnPosterStylesArray as $property => $value) {
             $newBtnPosterStyles .= "    {$property}: {$value};\n";
         }
@@ -151,7 +148,7 @@ class FileItemController extends Controller
         // Save updated content to the CSS file
         $updatedContent = str_replace($this->getOriginalStyles($fileContent, '.listliks'), $newStyles, $fileContent);
         $updatedContent = str_replace($this->getOriginalStyles($fileContent, '.listliks li'), $newListItemsStyles, $updatedContent);
-        $updatedContent = str_replace($this->getOriginalStyles($fileContent, '.btnPoster'), $newBtnPosterStyles, $updatedContent);
+        $updatedContent = str_replace($this->getOriginalStyles($fileContent, '.listliks li a img'), $newBtnPosterStyles, $updatedContent);
 
         // Ensure responsive styles are included at the end of the file
         if (!str_contains($updatedContent, '@media (max-width: 480px)')) {

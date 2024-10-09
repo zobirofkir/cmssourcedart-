@@ -39,6 +39,20 @@
                     </div>
                 @endforeach
         
+                <label class="block text-gray-700 text-sm font-bold mb-2">Button Size:</label>
+                <div class="flex items-center mb-2">
+                    <input type="text" id="btnPoster_height" name="btnPoster_height" value="{{ old('btnPoster_height', $btnPosterHeight) }}" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-full">
+                                        
+                    <!-- Dropdown to choose unit (px or %) -->
+                    <select id="unit_btnPoster_height" class="ml-2 border rounded py-2 px-[30px] text-gray-700 px-4">
+                        <option value="px" selected>px</option>
+                        {{-- <option value="%">%</option> --}}
+                    </select>
+                    
+                    <button type="button" onclick="adjustValue('btnPoster_height', 'unit_btnPoster_height', -10)" class="ml-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-1 px-2 rounded">-</button>
+                    <button type="button" onclick="adjustValue('btnPoster_height', 'unit_btnPoster_height', 10)" class="ml-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-1 px-2 rounded">+</button>
+                </div>
+
                 <h3 class="text-lg font-medium text-gray-700 mb-2">Responsive Styles</h3>
         
                 <label class="block text-gray-700 text-sm font-bold mb-2">Responsive Top:</label>
