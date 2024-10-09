@@ -1,6 +1,7 @@
 <?php
 
 return [
+    App\Providers\AlbumServiceProvider::class,
     App\Providers\AppServiceProvider::class,
     App\Providers\EposterServiceProvider::class,
     App\Providers\ExportServiceProvider::class,
