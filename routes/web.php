@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\EposterController;
 use App\Http\Controllers\EposterFileController;
 use App\Http\Controllers\ExportController;
@@ -92,6 +93,17 @@ Route::middleware('auth')->group(function () {
         'update' => 'file.update'
     ]);
     
+    /**
+     * Album Controller routes
+     */
+    Route::get('/album', [AlbumController::class, 'index'])->name('album.index');
+    Route::get('/album/create', [AlbumController::class, 'create'])->name('album.create');
+    Route::post('/album', [AlbumController::class, 'store'])->name('album.store');
+    Route::get('/album/{id}/edit', [AlbumController::class, 'edit'])->name('album.edit');
+    Route::put('/album/{id}', [AlbumController::class, 'update'])->name('album.update');
+    Route::delete('/album/{id}', [AlbumController::class, 'destroy'])->name('album.destroy');
+
+
     /**
      * Export Controller routes
      */
