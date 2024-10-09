@@ -21,7 +21,7 @@
                 </div>
                 <div class="mb-4">
                     <label for="image" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Upload Image</label>
-                    <input type="file" name="image" id="image" class="mt-1 p-2 border border-gray-300 rounded-lg w-full" required>
+                    <input type="file" name="image" id="image" class="mt-1 p-2 border border-gray-300 rounded-lg w-full dark:text-white text-black" required>
                 </div>
                 <button type="submit" class="w-full px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200">
                     Add Theme

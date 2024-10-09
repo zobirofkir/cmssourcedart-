@@ -18,7 +18,7 @@
                 @foreach ($projects as $project)
                     <li class="flex items-center justify-between p-4 border border-gray-200 rounded-md dark:border-gray-700 dark:bg-gray-900">
                         <span class="text-gray-800 dark:text-gray-200">{{ $project->name }}</span>
-                        <div class="flex space-x-4 items-center">
+                        {{-- <div class="flex space-x-4 items-center">
                             <form action="{{ route('projects.destroy', $project->name) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this project?');">
                                 @csrf
                                 @method('DELETE')
@@ -34,7 +34,7 @@
                                     Update Path
                                 </button>
                             </form>
-                        </div>
+                        </div> --}}
                     </li>
                 @endforeach
             </ul>

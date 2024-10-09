@@ -6,8 +6,9 @@ use App\Http\Requests\UploadRequest;
 use App\Services\Construct\UploadConstruct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use ZipArchive;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
+use ZipArchive;
 
 
 class UploadService implements UploadConstruct
@@ -46,32 +47,43 @@ class UploadService implements UploadConstruct
      * @param Request $request
      * @return void
      */
+    
     public function store(UploadRequest $request)
     {
         $request->validated();
-
+    
         $file = $request->file('file');
         $filename = $file->getClientOriginalName();
         $uploadPath = 'project/'; 
-
-        $file->move($uploadPath, $filename);
-
+        $fullPath = public_path($uploadPath);
+    
+        $file->move($fullPath, $filename);
+    
         if ($file->getClientOriginalExtension() === 'zip') {
             $zip = new ZipArchive;
-            $zipPath = $uploadPath . $filename;
-            $destinationPath = $uploadPath . pathinfo($filename, PATHINFO_FILENAME);
-
+            $zipPath = $fullPath . $filename; 
+    
+            $projectName = pathinfo($filename, PATHINFO_FILENAME);
+            $destinationPath = $fullPath;
+    
+            $existingFolder = $destinationPath . $projectName;
+            if (File::exists($existingFolder)) {
+                File::deleteDirectory($existingFolder);
+            }
+    
             if ($zip->open($zipPath) === TRUE) {
                 $zip->extractTo($destinationPath);
                 $zip->close();
+                
                 unlink($zipPath);
             } else {
                 return redirect()->back()->with('error', 'Failed to unzip the file.');
             }
         }
-
-        return redirect()->route('projects.index')->with('success', 'Project uploaded successfully.');
+    
+        return redirect()->route('projects.index')->with('success', 'Project uploaded and extracted successfully.');
     }
+    
 
     /**
      * Remove the specified resource from storage.
