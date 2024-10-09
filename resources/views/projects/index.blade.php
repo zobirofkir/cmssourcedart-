@@ -1,7 +1,4 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h1 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Projects List</h1>
-    </x-slot>
 
     <div class="py-6 px-4 max-w-3xl mx-auto">
         <div class="bg-white shadow-md rounded-lg p-6 dark:bg-gray-800">
