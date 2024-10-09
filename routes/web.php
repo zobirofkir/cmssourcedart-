@@ -101,7 +101,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/album', [AlbumController::class, 'store'])->name('album.store');
     Route::get('/album/{id}/edit', [AlbumController::class, 'edit'])->name('album.edit');
     Route::put('/album/{id}', [AlbumController::class, 'update'])->name('album.update');
-    Route::delete('/album/{id}', [AlbumController::class, 'destroy'])->name('album.destroy');
+    Route::delete('/album', [AlbumController::class, 'destroy'])->name('album.destroy');
 
 
     /**

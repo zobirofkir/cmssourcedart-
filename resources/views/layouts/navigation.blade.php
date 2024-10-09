@@ -54,7 +54,9 @@
                         {{ __('E-Poster') }}
                     </x-nav-link>
 
-
+                    <x-nav-link :href="url('album')" :active="request()->routeIs('eposter.index')" class="hover:text-indigo-500 dark:hover:text-indigo-400">
+                        {{ __('Album') }}
+                    </x-nav-link>
 
                     <x-nav-link :href="route('project.export')" :active="request()->routeIs('project.export')" id="exportButton" class="hover:text-indigo-500 dark:hover:text-indigo-400">
                         {{ __('Export') }}

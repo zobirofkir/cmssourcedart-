@@ -33,7 +33,7 @@ class AlbumController extends Controller
         return AlbumFacade::update($request, $id);
     }
 
-    public function destroy($id){
-        return AlbumFacade::destroy($id);
+    public function destroy(){
+        return AlbumFacade::destroy();
     }
 }

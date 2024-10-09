@@ -23,5 +23,5 @@ interface AlbumConstructor
 
     public function update(AlbumRequest $request, $id);
 
-    public function destroy($id);
+    public function destroy();
 }
