@@ -146,7 +146,7 @@ class FileItemController extends Controller
             $responsiveStyles .= "    left: {$request->input('responsive_left')};\n";
         }
 
-        $responsiveStyles .= "}}\n";
+        $responsiveStyles .= "}\n";
 
         // Save updated content to the CSS file
         $updatedContent = str_replace($this->getOriginalStyles($fileContent, '.listliks'), $newStyles, $fileContent);

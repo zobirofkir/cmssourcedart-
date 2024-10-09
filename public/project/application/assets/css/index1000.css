@@ -88,6 +88,16 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
 .listliks li {
     flex: 0 0 auto;
     margin-bottom: 5px;
@@ -159,12 +169,22 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
 .listliks li a {
   display: block;
 }
 
 .listliks li a img {
-  height: 200px;
+  height: 150px;
   width: auto;
 }
 
@@ -194,11 +214,6 @@ body {
     width: 100%;
     text-align: center;
   }
-
-  .listliks li a img {
-    height: 80px; /* Smaller button size */
-    width: auto;
-  }
 }
 
 @media (max-width: 768px) {
@@ -218,6 +233,11 @@ body {
   .listliks li a {
     width: 100%;
     text-align: center;
+  }
+
+  .listliks li a img {
+    height: 100px;
+    width: auto;
   }
 }
 
@@ -306,11 +326,35 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 480px) {
   .listliks {
     top: 50%;
     right: 0px;
     left: 170px;
-}}
 }
+
+
+
+
+
+
+
+
+
+
+  
+  .listliks li a img {
+    height: 80px;
+    width: auto;
+  }
 }
