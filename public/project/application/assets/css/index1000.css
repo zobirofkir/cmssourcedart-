@@ -19,10 +19,27 @@ body {
     flex-direction: column;
     align-items: flex-end;
     z-index: 9999;
-    top: 70%;
+    top: 65%;
     right: 1000px;
     left: 60px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -235,14 +252,49 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .listliks li a {
   display: block;
 }
 
 .listliks li a img {
-    height: 150px;
+    height: 130px;
     width: auto;
+    margin-top: -20px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -426,6 +478,23 @@ body {
     right: 0px;
     left: 170px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

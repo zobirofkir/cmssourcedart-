@@ -25,8 +25,9 @@ class FileItemController extends Controller
     
         // Extract the specific style you need for the input
         $btnPosterHeight = isset($btnPosterStylesArray['height']) ? $btnPosterStylesArray['height'] : '';
+        $btnPosterMargintop = isset($btnPosterStylesArray['margin-top']) ? $btnPosterStylesArray['margin-top'] : '';
     
-        return view('items.file', compact('fileContent', 'filePath', 'stylesArray', 'listItemsStylesArray', 'btnPosterStylesArray', 'btnPosterHeight'));
+        return view('items.file', compact('fileContent', 'filePath', 'stylesArray', 'listItemsStylesArray', 'btnPosterStylesArray', 'btnPosterHeight', 'btnPosterMargintop'));
     }
 
     public function update(Request $request)
@@ -41,6 +42,7 @@ class FileItemController extends Controller
             'listliks_li_margin_bottom' => 'nullable|string',
             'listliks_li_width' => 'nullable|string',
             'btnPoster_height' => 'nullable|string',
+            'btnPoster_margin' => 'nullable|string',
             'responsive_top' => 'nullable|string',
             'responsive_right' => 'nullable|string',
             'responsive_bottom' => 'nullable|string',
@@ -88,6 +90,7 @@ class FileItemController extends Controller
         // Update properties from request for .btnPoster styles
         $btnPosterProperties = [
             'height' => 'btnPoster_height',
+            'margin-top' => 'btnPoster_margin',
         ];
 
         foreach ($btnPosterProperties as $cssProperty => $inputName) {
