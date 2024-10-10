@@ -21,7 +21,7 @@
                     </x-nav-link>
 
                     <x-nav-link :href="route('items.index')" :active="request()->routeIs('items.index')" class="hover:text-indigo-500 dark:hover:text-indigo-400">
-                        {{ __('Items') }}
+                        {{ __('Itemsf') }}
                     </x-nav-link>
 
                     <!-- Reddifusion Dropdown -->
@@ -54,7 +54,7 @@
                         {{ __('E-Poster') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="url('album')" :active="request()->routeIs('eposter.index')" class="hover:text-indigo-500 dark:hover:text-indigo-400">
+                    <x-nav-link :href="url('album')" :active="request()->routeIs('album.index')" class="hover:text-indigo-500 dark:hover:text-indigo-400">
                         {{ __('Album') }}
                     </x-nav-link>
 
@@ -139,6 +139,10 @@
 
             <x-responsive-nav-link :href="url('eposter')" :active="request()->routeIs('eposter.index')" class="hover:bg-gray-100 dark:hover:bg-gray-800">
                 {{ __('E-Poster') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="url('album')" :active="request()->routeIs('album.index')" class="hover:bg-gray-100 dark:hover:bg-gray-800">
+                {{ __('Album') }}
             </x-responsive-nav-link>
 
             <x-responsive-nav-link :href="route('project.export')" :active="request()->routeIs('project.export')" class="hover:bg-gray-100 dark:hover:bg-gray-800">
